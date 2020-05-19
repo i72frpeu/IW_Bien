@@ -78,7 +78,7 @@ public class Usuario {
 	}
 
   public String getCarnet(){
-		return carnet_universidad
+		return carnet_universidad;
 	}
 
   public void setID(int id){
@@ -117,7 +117,7 @@ public class Usuario {
     this.carnet_universidad = carnet_universidad;
   }
 
-  public Boolean iniciarSesion(email, password){
+  public Boolean iniciarSesion(String email, String password){
     BufferedReader br = null;
 
     try {
@@ -131,7 +131,7 @@ public class Usuario {
 	while (null!=line) {
 	       String [] fields = line.split(SEPARATOR);
          	var x = fields[0].toString();
-	 	var y = fields[1].toString();
+         	var y = fields[1].toString();
 
          	if (email.equals(x) && password.equals(y)) {
             		return true;
