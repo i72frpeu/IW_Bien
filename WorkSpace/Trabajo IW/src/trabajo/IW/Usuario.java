@@ -1,9 +1,6 @@
-package trabajo.IW;
-
-public class Usuario {
-
-}
- java.io.IOException;
+import java.io.*;
+import java.util.Scanner;
+import java.io.IOException;
 import java.util.Arrays;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -131,17 +128,17 @@ public class Usuario {
       String user = email;
       String pass = password;
       */
-	    while (null!=line) {
+	while (null!=line) {
 	       String [] fields = line.split(SEPARATOR);
-         var x = fields[0].toString();
-	       var y = fields[1].toString();
+         	var x = fields[0].toString();
+	 	var y = fields[1].toString();
 
-         if (email.equals(x) && password.equals(y)) {
-            return true;
-	       }
+         	if (email.equals(x) && password.equals(y)) {
+            		return true;
+	        }
 
-	       line = br.readLine();
-	    }
+	       	line = br.readLine();
+	    	}
 
 	   }catch (Exception e) {
 
@@ -151,5 +148,6 @@ public class Usuario {
 	         }
 	    }
 
-    return false;
+   	 return false;
+	}
 }
