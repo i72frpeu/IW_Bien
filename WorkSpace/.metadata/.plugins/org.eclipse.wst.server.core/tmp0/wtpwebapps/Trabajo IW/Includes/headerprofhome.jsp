@@ -1,3 +1,4 @@
+<jsp:useBean id="Usuario" class="trabajo.IW.UsuarioBean" scope="session" />
 <!DOCTYPE html>
 <html>
 
@@ -21,8 +22,7 @@
     <div>
       <img src="img/profile-42914_960_720.png" alt="IMG_USER" class="img_user">
       <div class="options_user">
-        <form>
-        </form>
+      	<h3><jsp:getProperty name="Usuario" property="usuario" /></h3>
       </div>
     </div>
   </header>

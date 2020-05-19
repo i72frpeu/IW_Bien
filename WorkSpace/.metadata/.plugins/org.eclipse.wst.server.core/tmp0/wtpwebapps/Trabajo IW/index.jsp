@@ -11,11 +11,11 @@
   <div class="loggin">
     <!--Cuadro para introducir username, password o si ha olvidado la contraseña-->
     <div class="inicio_sesion">
-      <form action="/controlador/Home (Libros).jsp" method="post" target="_self">
+      <form action="Controlador/loginControl.jsp" method="post" target="_self">
 
         <!--Introduce el usuario-->
         Email<br>
-        <input type="email" name="usuario" id="usuario" required><br><br>
+        <input type="email" name="email" id="email" required><br><br>
 
         <!--Introduce la contraseña-->
         Contrase&ntilde;a<br>
