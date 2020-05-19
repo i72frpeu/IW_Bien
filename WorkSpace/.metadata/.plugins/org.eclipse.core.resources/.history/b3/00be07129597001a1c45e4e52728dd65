@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+  <title>Iniciar Sesion</title>
+  <link rel="stylesheet" href="wf1.css">
+</head>
+
+<body>
+
+  <!--Definimos la foto de inicio-->
+  <img src="https://rolloid.net/wp-content/uploads/2017/05/estas-20-fotos-le-alegran-el-dia-a-cualquiera-1495727773.jpe" alt="LOGO" class="logo_inicio">
+
+  <!--Mensaje de bienvenida-->
+  <h2 class="mensaje_inicio"><strong>Comparte tu vida laboral</strong></h2>
+
+  <!--Cuadro para introducir username, password o si ha olvidado la contraseña-->
+  <div class="inicio_sesion">
+    <form>
+      Usuario<br>
+      <input type="email" name="usuario"><br><br>
+      Contrase&ntilde;a<br>
+      <input type="password" name="contr"><br><br>
+      <input type="submit" value="Entrar"><br><br><br>
+      A olvidado su contrase&ntilde;a<br><br>
+    </form>
+    <a href="wf2.3.html"><input type="submit" value="Recuperar"></a>
+  </div>
+
+  <!--Unirse si no tienes cuenta-->
+  <div class="no_tiene_cuenta">
+    <p><strong>&Uacute;nete si no tienes cuenta</strong></p>
+    <a href="wf2.1.html" target="_self">Crear cuenta</a>
+  </div>
+
+</body>
+</html>

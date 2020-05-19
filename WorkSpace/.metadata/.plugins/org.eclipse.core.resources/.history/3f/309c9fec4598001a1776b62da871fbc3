@@ -1,0 +1,37 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ include file="../Includes/headerprof.jsp" %>
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Pedido</title>
+	<link rel="stylesheet" type="text/css" href="../CSS/headerprof.css">
+	<link rel="stylesheet" type="text/css" href="../CSS/wf7.0.css">
+</head>
+<body>
+
+	<div class="div_home">
+  		<table class = "tablalibro">
+		<tr>
+			<td class = "tdlibro"> Nombre </td> <td class = "tdlibro"> Apellido </td>
+		</tr>
+		<tr>
+			<td class = "tdlibro" > Titulo Libro </td>
+		</tr>
+		<tr>
+			<td class = "tdlibro"> Autor </td> 
+		</tr>
+		<tr>
+			<td class = "tdlibro"> Nº Ejemplares </td> <td class = "tdlibro"> Precio Estimado </td>
+		</tr>
+		<tr>
+			<td class = "tdlibro"> <a href = ""><button>Modificar Pedido</button></a></td> <td class = "tdlibro"> <a href = ""><button>Cancelar Pedido</button></a> </td>
+		</tr>
+	</table>
+  </div>
+
+</body>
+</html>

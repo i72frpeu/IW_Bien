@@ -1,0 +1,48 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ include file="../Includes/header.jsp" %>
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Libro</title>
+	<link rel="stylesheet" type="text/css" href="../CSS/header.css">
+	<link rel="stylesheet" type="text/css" href="../CSS/wf4.0.css">
+</head>
+
+<body>
+  <!--Roll de artículos-->
+  
+  <div class="buscador">
+  	<form>
+  		<table>
+  		<tr>
+  		<td><input type="text" name="buscar" required></td>
+  		<td><input type="submit" value="Buscar"></td> 
+  		</tr>
+  		</table>
+  	</form>
+  </div>
+
+  <div class="div_home">
+	<table class = "tablalibro" border = "2px">
+		<tr>
+			<td rowspan = 4> Imagen </td> <td> ID </td> <td> Titulo </td> <td> Estado </td>
+		</tr>
+		<tr>
+			<td> Autor </td> <td rowspan = 2> Materiles </td> <td> Nº Pag </td>
+		</tr>
+		<tr>
+			<td> Materia </td> <td> Encuadernamiento </td>
+		</tr>
+		<tr>
+			<td colspan = 2> Descripcion </td> <td> Boton </td>
+		</tr>
+	</table>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,197 @@
+body
+{
+	background-color: rgb(0,210,255);
+}
+
+
+/*153x100 pixeles*/
+.logo_home
+{
+	position: fixed;
+	left: 2%;
+	width: 150px;
+	margin-right: 5%;
+	border: 1px solid #ddd;
+  	border-radius: 4px;
+  	box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+.img_user
+{
+	position: fixed;
+	left: 82%;
+	top: 5%;
+	width: 80px;
+	height: 80px;
+	margin-left: 2%;
+	border: 1px solid #ddd;
+  	border-radius: 4px;
+  	box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+.options_user
+{
+	position: fixed;
+	top: 18%;
+	left: 84%;
+}
+
+
+.link_home
+{
+	background-color: white;
+	border: 2px solid black;
+	color: black;
+	text-decoration: none;
+	padding: 2%;
+	left: 25%;
+	top:2%;
+	width: 10%;
+	height: 3%;
+	text-align: center;
+	position: fixed;
+}
+
+.link_amigos
+{
+	background-color: white;
+	border: 2px solid black;
+	color: black;
+	text-decoration: none;
+	padding: 2%;
+	left: 40%;
+	top:2%;
+	width: 10%;
+	height: 3%;
+	text-align: center;
+	position: fixed;
+}
+
+.link_buscador
+{
+	background-color: white;
+	border: 2px solid black;
+	color: black;
+	text-decoration: none;
+	padding: 2%;
+	left: 55%;
+	top:2%;
+	width: 10%;
+	height: 3%;
+	text-align: center;
+	position: fixed;
+}
+
+.link_foro
+{
+	background-color: white;
+	border: 2px solid black;
+	color: black;
+	text-decoration: none;
+	padding: 2%;
+	left: 65%;
+	top:2%;
+	width: 10%;
+	height: 3%;
+	text-align: center;
+	position: fixed;
+}
+
+div.div_lista_amigos
+{
+	background-color: white;
+	border: 2px solid black;
+	position: fixed;
+	left: 2%;
+	top: 40%;
+	width: 10%;
+	height: 45%;
+	padding: 2%;
+	overflow: auto;
+}
+
+.boton_cir
+{
+	border-radius: 200px 200px 200px 200px;
+	-moz-border-radius: 200px 200px 200px 200px;
+	-webkit-border-radius: 200px 200px 200px 200px;
+	left: 85%;
+	top: 75%;
+	width: 100px;
+	height: 100px;
+	font-size: 80px;
+	position: fixed;
+	border: 0;
+	color: white;
+	background-color: rgb(0, 46, 255);
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ }
+
+a.sobre
+{
+	position: fixed;
+	left: 30%;
+	top: 96%;
+}
+
+a.tecnico
+{
+	position: fixed;
+	left: 60%;
+	top: 96%;
+}
+ 
+.div_home
+{
+	background-color: white;
+	border: 2px solid black;
+	position: fixed;
+	left: 20%;
+	right: 20.5%;
+	top:22%;
+	bottom: 5%;
+	color: black;
+	overflow: auto;
+}
+
+.img_user_2
+{
+	top: 5px;
+	left: 5px;
+	height: 50px;
+	width: 50px;
+	border: 1px solid #ddd;
+  	border-radius: 4px;
+}
+table.uno
+{
+	border: 2px solid black;
+	border-spacing: 20px 10px;
+
+	width: 100%;
+
+}
+
+table.dos
+{
+	border: 2px solid white;
+	border-spacing: 10px;
+	width: 100%;
+
+}
+.td_user_des
+{
+	border: 2px solid black;
+	width: 25%;
+}
+
+.buscador
+{
+	position: relative;
+	top: 2%;
+	left: 15%;
+
+}
+.q_buscador
+{
+	width: 60%;
+}

@@ -1,0 +1,12 @@
+table.tablalibro
+{
+	width: 100%;
+	border: 2px;
+	border-spacing: 20px 10px;
+	height: 100%;
+}
+
+.tdlibro
+{
+	border: 2px solid black;
+}

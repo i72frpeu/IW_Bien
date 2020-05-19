@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ include file="../Includes/header.jsp" %>
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Home (Libros)</title>
+	<link rel="stylesheet" type="text/css" href="../CSS/header.css">
+	<link rel="stylesheet" type="text/css" href="../CSS/wf4.0.css">
+</head>
+
+<body>
+  <!--Roll de artículos-->
+  
+  <div class="buscador">
+  	<form>
+  		<table>
+  		<tr>
+  		<td><input type="text" name="buscar" required></td>
+  		<td><input type="submit" value="Buscar"></td> 
+  		</tr>
+  		</table>
+  	</form>
+  </div>
+
+  <div class="div_home">
+	<table>
+		<tr>
+			<td> Imagen </td> <td> ID </td> <td> Titulo </td> <td> Estado </td>
+		</tr>
+	</table>
+  </div>
+
+</body>
+
+</html>

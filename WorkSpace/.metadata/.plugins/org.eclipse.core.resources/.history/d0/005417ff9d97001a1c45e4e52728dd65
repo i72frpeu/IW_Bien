@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+</head>
+
+<body>
+  <header class="main-header">
+    <!--Definimos el logo-->
+    <img src="img/logo.PNG" alt="LOGO" class="logo_home">
+    <!--Enlace a HOME-->
+	<a href="" class="link_home"><strong>HOME</strong></a>
+    <!--Enlace a AMIGOS-->
+    <a href="" class="link_amigos"><strong>RESERVAS</strong></a>
+    <!--Enlace a BUSCADOR-->
+    <a href="mvc/control/lookforControl.jsp" class="link_buscador"><strong>PRESTAMOS</strong></a>
+    <!--Definimos imagen usuario-->
+    <div>
+      <img src="img/profile-42914_960_720.png" alt="IMG_USER" class="img_user">
+      <div class="options_user">
+        <form>
+        </form>
+      </div>
+    </div>
+  </header>
+ 
+ </body>
+ </html> 
