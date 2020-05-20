@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<jsp:useBean id="libroactivo" class="trabajo.IW.LibroBean" scope="session" />
 <%@ include file="../Includes/header.jsp" %>
 
 <!DOCTYPE html>
@@ -29,13 +30,13 @@
   <div class="div_home">
   		<table class = "tablalibro">
 		<tr>
-			<td class = "tdlibro" rowspan = 4> Imagen </td> <td class = "tdlibro"> ID </td> <td class = "tdlibro"> Titulo </td> <td class = "tdlibro"> Estado </td>
+			<td class = "tdlibro" rowspan = 4> Imagen </td> <td class = "tdlibro"> <%= libroactivo.getId_libro() %> </td> <td class = "tdlibro"> <%= libroactivo.getTitulo() %> </td> <td class = "tdlibro"> Estado </td>
 		</tr>
 		<tr>
-			<td class = "tdlibro" > Autor </td> <td class = "tdlibro" rowspan = 2> Materiles </td> <td class = "tdlibro"> Nº Pag </td>
+			<td class = "tdlibro" colspan = 2> <%= libroactivo.getAutor() %> </td> <td class = "tdlibro"> <%= libroactivo.getPaginas() %> </td>
 		</tr>
 		<tr>
-			<td class = "tdlibro"> Materia </td> <td class = "tdlibro"> Encuadernamiento </td>
+			<td class = "tdlibro"> <%= libroactivo.getMateria() %> </td> <td class = "tdlibro"> <%= libroactivo.getEditorial() %> </td> <td class = "tdlibro" rowspan = 2> <%= libroactivo.getEncuadernamiento() %> </td>
 		</tr>
 		<tr>
 			<td class = "tdlibro" colspan = 2> Descripcion </td> <td class = "tdlibro"> <a href = "Formulario Reservas.jsp"><button>Reservar</button></a> </td>

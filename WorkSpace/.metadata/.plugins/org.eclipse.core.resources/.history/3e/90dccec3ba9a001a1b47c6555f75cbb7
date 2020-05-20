@@ -1,0 +1,30 @@
+<%@page import="trabajo.DAO.LibroDAO"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<jsp:useBean id="Usuario" class="trabajo.IW.UsuarioBean" scope="session" />
+<jsp:useBean id="listaLibros" class="trabajo.IW.ListalibrosBean" scope="session" />
+<jsp:useBean id="libroactivo" class="trabajo.IW.LibroBean" scope="session" />
+<%
+
+
+	LibroDAO x = new LibroDAO();
+	
+	System.out.println(request.getParameter("titulo"));
+	
+	String libro = request.getParameter("titulo");
+	
+	if(x.load_libro(libro) == true){
+%>
+	<jsp:forward page = "../Vistas/Libro.jsp">
+		<jsp:param name="Titulo" value="<%= x.getTitulo() %>" />
+		<jsp:param name="ID" value="<%= x.getId_libro() %>" />
+		<jsp:param name="Autor" value="<%= x.getAutor() %>" />
+		<jsp:param name="Materia" value="<%= x.getMateria() %>" />
+		<jsp:param name="Editorial" value="<%= x.getEditorial() %>" />
+		<jsp:param name="Paginas" value="<%= x.getPaginas() %>" />
+		<jsp:param name="Encuadernamiento" value="<%= x.getEncuadernamiento() %>" />
+	</jsp:forward>
+<%
+	}
+
+
+%>

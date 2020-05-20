@@ -42,7 +42,7 @@
 
   <!--NOMBRE Y APELLIDOS-->
   <div class="registro">
-    <form action="../Home (Libros).jsp" method="post" target="_self">
+    <form action="../Controlador/Registro.jsp" method="post" target="_self">
       <table>
         <tr>
           <td> <strong>Nombre</strong></td> <td class="td_user"><strong>Apellidos</strong></td>
@@ -51,6 +51,9 @@
           <td><input type="text" name="nombre" required></td> <td><input type="text" name="apellidos" required></td>
         </tr>
       </table>
+      
+      <strong>Usuario</strong><br>
+      <input type="text" name="usuario" required><br><br>
       
       <!--CORREO ELECTRONICO-->
       <strong>Correo electr&oacute;nico</strong><br>
@@ -63,10 +66,6 @@
       <!--CONTRASEÑA 1-->
       <strong>Contrase&ntilde;a</strong><br>
       <input type="password" name="password" id="verpassword" required>&nbsp&nbsp<input type="Checkbox" onclick="mostrarContrasena()">Mostrar Contrase&ntilde;a<br><br>
-      
-      <!--CONTRASEÑA 2-->
-      <strong>Confirmar contrase&ntilde;a</strong><br>
-      <input type="password" name="password2" id="verpassword2" required>&nbsp&nbsp<input type="Checkbox" onclick="mostrarContrasena2()">Mostrar Contrase&ntilde;a<br><br>
       
       <input type="submit" value="Registrarse"> 
     </form>

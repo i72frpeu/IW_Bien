@@ -39,7 +39,7 @@
                     <td class="td_user_img"><img src="img/libro.png" alt="IMG_USER" class="img_user_2"></td>
                     <td class="tdlibro"> <%= listaLibros.getLibro(i).getTitulo()  %> </td>
                     <td class="td_user_des">Aqui va la descripcion que será muy larga</td>
-                    <td><form action = Controlador/Libros.jsp>
+                    <td><form action = Controlador/Libro.jsp>
                     	<input type="hidden" name="titulo" value=<%= listaLibros.getLibro(i).getTitulo() %>>
     					<input type="submit" value="Libro">
     				</form>

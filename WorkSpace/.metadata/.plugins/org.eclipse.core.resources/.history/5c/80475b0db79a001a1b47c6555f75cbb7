@@ -1,0 +1,15 @@
+<%@page import="trabajo.DAO.LibroDAO"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<jsp:useBean id="Usuario" class="trabajo.IW.UsuarioBean" scope="session" />
+<jsp:useBean id="listaLibros" class="trabajo.IW.ListalibrosBean" scope="session" />
+<%
+
+
+	LibroDAO x = new LibroDAO();
+	
+	System.out.println(request.getParameter("titulo"));
+	
+	String libro = request.getParameter("titulo");
+
+
+%>
