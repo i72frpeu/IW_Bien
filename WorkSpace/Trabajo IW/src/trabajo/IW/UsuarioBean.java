@@ -2,6 +2,9 @@ package trabajo.IW;
 import java.io.*;
 import java.util.Scanner;
 import java.io.IOException;
+import java.io.Writer;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 
 public class UsuarioBean {
 
@@ -121,7 +124,7 @@ public class UsuarioBean {
 						 this.setUsuario(linea[4]);
 						 this.setEmail(linea[6]);
 						 this.setCarnet(linea[7]);
-						 
+
 						 return true;
 					 }
 				  }
@@ -134,4 +137,15 @@ public class UsuarioBean {
 	  }
 	  return false;
   }
+
+  public boolean registrarse(int id, int tipo, String nombre, String apellido1, String usuario, String password, String email, String carnet_universidad) throws IOException{
+
+    String data = id + "," + tipo + "," + nombre + "," + apellido1 + "," usuario + "," + password + "," + email + "," + carnet_universidad;
+
+    Writer output = new BufferedWriter(new FileWriter("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Usuarios.csv",true));
+		output.append(data + "\n");
+    output.close();
+  }
+
+
 }
