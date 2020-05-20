@@ -121,22 +121,22 @@ public class LibroDAO {
 	  return false;
 	}
 
-	public boolean registrarse(int id, String titulo, String autor, String materia, String editorial, int paginas, int encuadernamiento) throws IOException{
+	public boolean guardarLibro(int id, String titulo, String autor, String materia, String editorial, int paginas, int encuadernamiento) throws IOException{
 
-    String data = id + "," + titulo + "," + autor + "," + materia + "," + editorial + "," + paginas + "," + encuadernamiento;
+  	  String data = id + "," + titulo + "," + autor + "," + materia + "," + editorial + "," + paginas + "," + encuadernamiento;
 
-    try{
-  	  Writer output = new BufferedWriter(new FileWriter("ruta de unai",true));
-  	  output.append(data + "\n");
-  	  output.close();
-  	  return true;
-    }catch(IOException e) {
-	  System.out.println(e);
-    }finally{
-  	  output.close();
- 	  return false;
-    }
-  }
+  	  try{
+		  Writer output = new BufferedWriter(new FileWriter("ruta de unai",true));
+		  output.append(data + "\n");
+		  output.close();
+		  return true;
+	    }catch(IOException e) {
+		  System.out.println(e);
+	    }finally{
+		  output.close();
+		  return false;
+   	 }
+ 	}
 
 
 }
