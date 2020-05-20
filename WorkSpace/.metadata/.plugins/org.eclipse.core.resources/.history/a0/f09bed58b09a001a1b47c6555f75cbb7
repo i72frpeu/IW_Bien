@@ -40,8 +40,8 @@
                     <td class="tdlibro"> <%= listaLibros.getLibro(i).getTitulo()  %> </td>
                     <td class="td_user_des">Aqui va la descripcion que será muy larga</td>
                     <td><form action = Controlador/Libros.jsp>
-                    	<input type="hidden" name="titulo" value=<%= listaLibros.getLibro(i).getTitulo() %>>
-    					<input type="submit" value="Libro">
+                    	<input type="hidden" name="id" value=<%= request.getParameter("id") %>>
+    					<input type="submit" value="Dejar de Seguir">
     				</form>
                     </td>
                   </tr>
