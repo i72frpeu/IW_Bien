@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ include file="Includes/headerhome.jsp" %>
+<jsp:useBean id="listaLibros" class="trabajo.IW.ListalibrosBean" scope="session" />
+
+
 
 <!DOCTYPE html>
 
@@ -28,13 +31,13 @@
 
   <div class="div_home">
     <table class="dos">
-    <% for (int i = 0; i < 8; i++){ %>
+    <% for (int i = 0; i < 2; i++){ %>
         <tr>
           <td>
               <table class="uno">
                   <tr>
-                    <td class="td_user_img"><a href=""><img src="img/libro.png" alt="IMG_USER" class="img_user_2"></a></td>
-                    <td class="tdlibro"> Nombre Libro </td>
+                    <td class="td_user_img"><img src="img/libro.png" alt="IMG_USER" class="img_user_2"></td>
+                    <td class="tdlibro"> <%= listaLibros.getLibro(i).getTitulo()  %> </td>
                     <td class="td_user_des">Aqui va la descripcion que será muy larga</td>
                     <td> <a href="Vistas/Libro.jsp"><button name="foro" class="boton_user">Libro</button></a><td>
                   </tr>

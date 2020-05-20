@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <jsp:useBean id="Usuario" class="trabajo.IW.UsuarioBean" scope="session" />
+<jsp:useBean id="listaLibros" class="trabajo.IW.ListalibrosBean" scope="session" />
 <%
 	
 
 	int id = 0;
 	
 	if(Usuario.iniciarSesion(request.getParameter("email"), request.getParameter("contr")) == true){
+		
+		listaLibros.loadLibros();
 		
 		if(Usuario.getTipo() == 1){
 			response.sendRedirect("../Home (Libros).jsp");
@@ -18,7 +21,7 @@
 			}
 		}
 	} 
-	}
+}
 		
 		
 %>

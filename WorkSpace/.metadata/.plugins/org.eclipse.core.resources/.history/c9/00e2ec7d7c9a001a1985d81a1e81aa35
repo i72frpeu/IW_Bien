@@ -1,0 +1,8 @@
+package trabajo.IW;
+import java.io.*;
+import java.util.Scanner;
+import java.io.IOException;
+
+public class ListalibrosBean {
+	private List<LibroDAO> listaLibros;
+}

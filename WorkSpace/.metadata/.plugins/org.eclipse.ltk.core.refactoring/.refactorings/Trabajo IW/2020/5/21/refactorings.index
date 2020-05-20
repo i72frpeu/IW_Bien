@@ -8,3 +8,12 @@
 1589912201057	Rename type 'Usuario'
 1589912273878	Rename type 'CustomerBean'
 1589914802726	Delete element
+1589967182536	Encapsulate field 'id_libro'
+1589967191192	Encapsulate field 'Titulo'
+1589967197790	Encapsulate field 'Autor'
+1589967203290	Encapsulate field 'Editorial'
+1589967209294	Encapsulate field 'Materia'
+1589967214721	Encapsulate field 'Paginas'
+1589967219385	Encapsulate field 'Encuadernamiento'
+1589968221247	Encapsulate field 'listaLibros'
+1589968674735	Encapsulate field 'aux'
