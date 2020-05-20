@@ -12,7 +12,7 @@ public class LibroDAO {
 	private String Editorial;
 	private int Paginas;
 	private int Encuadernamiento;
-	
+
 	public int getId_libro() {
 		return id_libro;
 	}
@@ -55,14 +55,14 @@ public class LibroDAO {
 	public void setEncuadernamiento(int encuadernamiento) {
 		Encuadernamiento = encuadernamiento;
 	}
-	
+
 	public boolean load_libro_aleatorio(int random) {
-		
-		File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Libros.csv"); 
+
+		File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Libros.csv");
 		System.out.println(random);
 		if(f1.exists()) {
 			  Scanner fich = null;
-			  
+
 			  try {
 				  fich = new Scanner(f1);
 				  String[] linea = null;
@@ -77,7 +77,7 @@ public class LibroDAO {
 						  this.setEditorial(linea[4]);
 						  this.setPaginas(Integer.parseInt(linea[5]));
 						  this.setEncuadernamiento(Integer.parseInt(linea[6]));
-						  
+
 						  return true;
 					  }
 					 }
@@ -89,15 +89,15 @@ public class LibroDAO {
 		  }
 		  return false;
 	}
-	
+
 	public boolean load_libro(String Nombre) {
-		File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Libros.csv"); 
+		File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Libros.csv");
 		if(f1.exists()) {
 		  Scanner fich = null;
 		  try {
 			  fich = new Scanner(f1);
 			  String[] linea = null;
-			  
+
 			  while(fich.hasNext()) {
 				  linea = fich.nextLine().split(",");
 				  String nombre = linea[1];
@@ -120,5 +120,23 @@ public class LibroDAO {
 	  }
 	  return false;
 	}
-	
+
+	public boolean registrarse(int id, String titulo, String autor, String materia, String editorial, int paginas, int encuadernamiento) throws IOException{
+
+    String data = id + "," + titulo + "," + autor + "," + materia + "," + editorial + "," + paginas + "," + encuadernamiento;
+
+    try{
+  	  Writer output = new BufferedWriter(new FileWriter("ruta de unai",true));
+  	  output.append(data + "\n");
+  	  output.close();
+  	  return true;
+    }catch(IOException e) {
+	  System.out.println(e);
+    }finally{
+  	  output.close();
+ 	  return false;
+    }
+  }
+
+
 }
