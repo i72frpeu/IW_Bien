@@ -3,7 +3,7 @@ package trabajo.IW;
 
 import java.io.*;
 import java.util.Scanner;
-import java.util.Vector;
+import java.util.ArrayList;
 
 public class PrestamoBean {
 	
@@ -124,7 +124,7 @@ public class PrestamoBean {
 	    	BufferedReader br = null;
 	        FileWriter fw = null;
 	        BufferedWriter bw = null;
-	    	Vector lineasAcopiar = new Vector();
+	    	ArrayList lineasAcopiar = new ArrayList();
 	    	try{
 	    		fr = new FileReader("C:/Users/javy2/Desktop/prestamos.csv");
 	            br = new BufferedReader(fr);
@@ -139,7 +139,7 @@ public class PrestamoBean {
 	            fw = new FileWriter("C:/Users/javy2/Desktop/prestamos.csv");
 	            bw = new BufferedWriter(fw);
 	            for(int l=0;l<lineasAcopiar.size();l++){
-	                linea = (String)lineasAcopiar.elementAt(l);
+	                linea = (String)lineasAcopiar.get(l);
 	                bw.write(linea);
 	                bw.newLine();
 	            }
