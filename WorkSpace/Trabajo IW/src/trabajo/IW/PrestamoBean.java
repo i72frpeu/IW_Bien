@@ -1,4 +1,4 @@
-package beans;
+package trabajo.IW;
 
 
 import java.io.*;
@@ -110,7 +110,7 @@ public class PrestamoBean {
                 output.append("\n" + String.valueOf(id_prestamo) + "," + id_libro + "," + titulo + "," + autor + "," + usuario + "," + String.valueOf(fecha_inicio_prestamo) + "," + String.valueOf(fecha_inicio_prestamo+30));
                             
                 output.close();
-                System.out.println("Prestamo añadido correctamente");
+                System.out.println("Prestamo aÃ±adido correctamente");
 			}
         }catch(Exception e){System.out.println("Error: " + e);}
 	}
