@@ -122,7 +122,7 @@ public class LibroDAO {
 	  return false;
 	}
 
-	/*public boolean guardarLibro(int id, String titulo, String autor, String materia, String editorial, int paginas, int encuadernamiento) throws IOException{
+	public boolean guardarLibro(int id, String titulo, String autor, String materia, String editorial, int paginas, int encuadernamiento) throws IOException{
 
   	  String data = id + "," + titulo + "," + autor + "," + materia + "," + editorial + "," + paginas + "," + encuadernamiento;
 
@@ -137,6 +137,7 @@ public class LibroDAO {
 		  output.close();
 		  return false;
    	 }
- 	}*/
+ 	}
+
 
 }

@@ -13,7 +13,6 @@ INDEX VERSION 1.131+D:\unaif\Documents\Universidad\3.2\IW\Trabajo\Trabajo\IW_Bie
 3149747983.index
 2642649259.index
 307898623.index
-3462080227.index
 2815013388.index
 2350488526.index
 3344360607.index
