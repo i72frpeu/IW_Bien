@@ -141,10 +141,18 @@ public class UsuarioBean {
   public boolean registrarse(int id, int tipo, String nombre, String apellido1, String usuario, String password, String email, String carnet_universidad) throws IOException{
 
     String data = id + "," + tipo + "," + nombre + "," + apellido1 + "," usuario + "," + password + "," + email + "," + carnet_universidad;
-
+    
+    try{	 
     Writer output = new BufferedWriter(new FileWriter("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Usuarios.csv",true));
-		output.append(data + "\n");
+    output.append(data + "\n");
     output.close();
+    return true;	    
+    }catch(IOException e) {
+	System.out.println(e);
+    }finally{
+    output.close();
+    return false;
+    }
   }
 
 
