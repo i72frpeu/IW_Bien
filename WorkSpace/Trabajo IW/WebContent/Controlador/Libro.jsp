@@ -20,7 +20,17 @@
 		libroactivo.setPaginas(x.getPaginas());
 		libroactivo.setEditorial(x.getEditorial());
 		libroactivo.setEncuadernamiento(x.getEncuadernamiento());
-		response.sendRedirect("../Vistas/Libro.jsp");
+		if(Usuario.getTipo() == 1){
+			response.sendRedirect("../Vistas/Libro.jsp");
+		}else{
+			if(Usuario.getTipo() == 2){
+				response.sendRedirect("../Vistas/Libro.jsp");
+		}else{
+			if(Usuario.getTipo() == 3){
+				response.sendRedirect("../Vistas/Libro Admin.jsp");
+			}
+		}
+	} 
 	}
 
 

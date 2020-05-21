@@ -1,8 +1,11 @@
 
 package trabajo.DAO;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
 import java.util.Scanner;
 
 public class LibroDAO {
@@ -60,7 +63,6 @@ public class LibroDAO {
 	public boolean load_libro_aleatorio(int random) {
 
 		File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Libros.csv");
-		System.out.println(random);
 		if(f1.exists()) {
 			  Scanner fich = null;
 
@@ -122,12 +124,12 @@ public class LibroDAO {
 	  return false;
 	}
 
-	/*public boolean guardarLibro(int id, String titulo, String autor, String materia, String editorial, int paginas, int encuadernamiento) throws IOException{
+	public boolean guardarLibro(int id, String titulo, String autor, String materia, String editorial, int paginas, int encuadernamiento) throws IOException{
 
   	  String data = id + "," + titulo + "," + autor + "," + materia + "," + editorial + "," + paginas + "," + encuadernamiento;
-
+  	  Writer output = new BufferedWriter(new FileWriter("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Libros.csv",true));
+  	  
   	  try{
-		  Writer output = new BufferedWriter(new FileWriter("ruta de unai",true));
 		  output.append(data + "\n");
 		  output.close();
 		  return true;
@@ -135,8 +137,29 @@ public class LibroDAO {
 		  System.out.println(e);
 	    }finally{
 		  output.close();
-		  return false;
-   	 }
- 	}*/
+	    }
+  	return false;
+ 	}
 
+	
+	public int numeroLibros() {
+		  File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Libros.csv");
+		  if(f1.exists()) {
+			  Scanner fich = null;
+			  int cont = 0;
+			  try {
+				  fich = new Scanner(f1);
+				  while(fich.hasNext()) {
+					  	fich.nextLine();
+					  	cont++;
+				  }
+			  }catch(IOException e) {
+					System.out.println(e);
+			  }finally{
+					fich.close();
+			  }
+			 return cont+1; 
+	  }
+		return -1;
+	}
 }

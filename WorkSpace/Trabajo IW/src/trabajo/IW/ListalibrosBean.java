@@ -22,15 +22,27 @@ public class ListalibrosBean {
 	}
 	
 	public void loadLibros() {
-		for(int i = 0; i < 2; i++) {
-			LibroDAO aux = new LibroDAO();
-			aux.load_libro_aleatorio(i+1);
-			listaLibros.add(aux);
+		if(listaLibros.size() != 0) {
+			
+		}else {
+			for(int i = 0; i < 2; i++) {
+				LibroDAO aux = new LibroDAO();
+				aux.load_libro_aleatorio(i+1);
+				listaLibros.add(aux);
+			}
 		}
+	}
+	
+	public void addlibro(LibroDAO aux) {
+		listaLibros.add(aux);
 	}
 	
 	public LibroDAO getLibro(int i) {
 		return this.listaLibros.get(i);
+	}
+	
+	public int getsize() {
+		return listaLibros.size();
 	}
 
 }

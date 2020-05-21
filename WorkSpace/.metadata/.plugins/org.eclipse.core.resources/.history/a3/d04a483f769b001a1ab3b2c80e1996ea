@@ -1,0 +1,181 @@
+package trabajo.IW;
+import java.io.*;
+import java.util.Scanner;
+import java.io.IOException;
+import java.io.Writer;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+
+public class UsuarioBean {
+
+  private int id;
+  private int tipo; //0 = Admin, 1 = Alumno, 2 = Profesor
+  private String nombre;
+  private String apellido1;
+  private String usuario;
+  private String password;
+  private String email;
+  private String carnet_universidad;
+
+	public UsuarioBean(){
+		this.id = -1;
+		this.tipo = -1;
+		this.nombre = null;
+		this.apellido1 = null;
+		this.usuario = null;
+		this.password = null;
+		this.email = null;
+		this.carnet_universidad = null;
+	}
+
+  public UsuarioBean(int id, int tipo, String nombre, String apellido1, String apellido2, String usuario, String password, String email, String carnet_universidad){
+		this.id = id;
+    this.tipo = tipo;
+    this.nombre = nombre;
+    this.apellido1 = apellido1;
+    this.usuario = usuario;
+    this.password = password;
+    this.email = email;
+    this.carnet_universidad = carnet_universidad;
+	}
+
+  public int getID(){
+		return id;
+	}
+
+  public int getTipo(){
+		return tipo;
+	}
+
+	public String getNombre(){
+		return nombre;
+	}
+
+  public String getApellido1(){
+    return apellido1;
+  }
+
+
+  public String getUsuario(){
+		return usuario;
+	}
+
+  public String getPassword(){
+		return password;
+	}
+
+  public String getEmail(){
+		return email;
+	}
+
+  public String getCarnet(){
+		return carnet_universidad;
+	}
+
+  public void setID(int id){
+    this.id = id;
+  }
+
+  public void setTipo(int tipo){
+    this.tipo = tipo;
+  }
+
+  public void setNombre(String nombre){
+    this.nombre = nombre;
+  }
+
+  public void setApellido1(String apellido1){
+    this.apellido1 = apellido1;
+  }
+
+
+  public void setUsuario(String usuario){
+    this.usuario = usuario;
+  }
+
+  public void setPassword(String password){
+    this.password = password;
+  }
+
+  public void setEmail(String email){
+    this.email = email;
+  }
+
+  public void setCarnet(String carnet_universidad){
+    this.carnet_universidad = carnet_universidad;
+  }
+
+  public boolean iniciarSesion(String email, String password){
+	  File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Usuarios.csv");
+	  if(f1.exists()) {
+		  Scanner fich = null;
+		  try {
+			  fich = new Scanner(f1);
+			  while(fich.hasNext()) {
+				  String[] linea = fich.nextLine().split(",");
+				  String comp = linea[6];
+				  if(comp.equals(email)) {
+					 String comp_pass = linea[5];
+					 if(comp_pass.equals(password)) {
+						 this.setID(Integer.parseInt(linea[0]));
+						 this.setTipo(Integer.parseInt(linea[1]));
+						 this.setNombre(linea[2]);
+						 this.setApellido1(linea[3]);
+						 this.setUsuario(linea[4]);
+						 this.setEmail(linea[6]);
+						 this.setCarnet(linea[7]);
+
+						 return true;
+					 }
+				  }
+			  }
+		  }catch(IOException e) {
+				System.out.println(e);
+		  }finally{
+				fich.close();
+		}
+	  }
+	  return false;
+  }
+
+
+  public boolean registrarse(int id, int tipo, String nombre, String apellido1, String usuario, String password, String email, String carnet_universidad) throws IOException{
+	  Writer output = new BufferedWriter(new FileWriter("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Usuarios.csv",true));
+    String data = id + "," + tipo + "," + nombre + "," + apellido1 + "," + usuario + "," + password + "," + email + "," + carnet_universidad;
+    try{	 
+  	   output.append(data + "\n");
+  	  output.close();
+  	  return true;	    
+    }catch(IOException e) {
+	  System.out.println(e);
+    }finally{
+  	  output.close();
+    }
+    return false;
+  }
+
+  
+  public int numeroUsers() {
+	  File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Usuarios.csv");
+	  if(f1.exists()) {
+		  Scanner fich = null;
+		  int cont = 0;
+		  try {
+			  fich = new Scanner(f1);
+			  while(fich.hasNext()) {
+				  	cont++;
+			  }
+		  }catch(IOException e) {
+				System.out.println(e);
+		  }finally{
+				fich.close();
+		  }
+		 return cont+1; 
+  }
+	return -1;
+ 
+}
+
+}
+
+

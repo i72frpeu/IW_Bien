@@ -1,5 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<jsp:useBean id="Usuario" class="trabajo.IW.UsuarioBean" scope="session" />
+<%
+if(Usuario.getTipo() == 1){
+%>
 <%@ include file="../Includes/header.jsp" %>
+<% 
+}else{
+	if(Usuario.getTipo() == 2){
+%>
+<%@ include file="../Includes/headerprof.jsp" %>
+<% 
+}else{
+	if(Usuario.getTipo() == 3){
+%>
+<%@ include file="../Includes/headeradmin.jsp" %>
+<%
+}}}
+%>
 
 <!DOCTYPE html>
 
@@ -8,7 +25,6 @@
 <head>
 	<meta charset="ISO-8859-1">
 	<title>Reserva</title>
-	<link rel="stylesheet" type="text/css" href="../CSS/header.css">
 	<link rel="stylesheet" type="text/css" href="../CSS/wf5.0.css">
 </head>
 

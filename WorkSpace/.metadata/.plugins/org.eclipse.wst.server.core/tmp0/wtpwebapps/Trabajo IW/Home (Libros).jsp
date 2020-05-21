@@ -31,7 +31,7 @@
 
   <div class="div_home">
     <table class="dos">
-    <% for (int i = 0; i < 2; i++){ %>
+    <% for (int i = 0; i < listaLibros.getsize(); i++){ %>
         <tr>
           <td>
               <table class="uno">

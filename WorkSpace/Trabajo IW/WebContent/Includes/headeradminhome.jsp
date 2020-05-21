@@ -11,7 +11,7 @@
     <!--Definimos el logo-->
     <img src="img/logo.PNG" alt="LOGO" class="logo_home">
     <!--Enlace a HOME-->
-	<a href="Home (Libros).jsp" class="link_home"><strong>HOME</strong></a>
+	<a href="Controlador/Home.jsp" class="link_home"><strong>HOME</strong></a>
     <!--Enlace a Reservas-->
     <a href="Vistas/Home Reservas.jsp" class="link_amigos"><strong>RESERVAS</strong></a>
     <!--Enlace a Prestamos-->

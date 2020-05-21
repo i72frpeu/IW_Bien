@@ -139,7 +139,7 @@ public class UsuarioBean {
   }
 
 
-public boolean registrarse(int id, int tipo, String nombre, String apellido1, String usuario, String password, String email, String carnet_universidad) throws IOException{
+  public boolean registrarse(int id, int tipo, String nombre, String apellido1, String usuario, String password, String email, String carnet_universidad) throws IOException{
 	  Writer output = new BufferedWriter(new FileWriter("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Usuarios.csv",true));
     String data = id + "," + tipo + "," + nombre + "," + apellido1 + "," + usuario + "," + password + "," + email + "," + carnet_universidad;
     try{	 
@@ -154,5 +154,29 @@ public boolean registrarse(int id, int tipo, String nombre, String apellido1, St
     return false;
   }
 
+  
+  public int numeroUsers() {
+	  File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Usuarios.csv");
+	  if(f1.exists()) {
+		  Scanner fich = null;
+		  int cont = 0;
+		  try {
+			  fich = new Scanner(f1);
+			  while(fich.hasNext()) {
+				  	fich.nextLine();
+				  	cont++;
+			  }
+		  }catch(IOException e) {
+				System.out.println(e);
+		  }finally{
+				fich.close();
+		  }
+		 return cont+1; 
+  }
+	return -1;
+ 
+}
 
 }
+
+

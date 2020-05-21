@@ -14,7 +14,7 @@
 
   <!--NOMBRE Y APELLIDOS-->
   <div class="registro">
-    <form action="Libro.jsp" method="post" target="_self">
+    <form action="../Controlador/GuardarLibro.jsp" method="post" target="_self">
       
       <strong>Título</strong><br>
       <input type="text" name="titulo" required><br><br>
@@ -29,16 +29,10 @@
       <input type="text" name="editorial" required><br><br>
       
       <strong>Páginas</strong><br>
-      <input type="text" name="pagina" required><br><br>
+      <input type="text" name="paginas" required><br><br>
       
       <strong>Encuadernamiento</strong><br>
       <input type="text" name="encuadernamiento" required><br><br>
-      
-      <strong>Material Adicional</strong><br>
-      <input type="text" name="adicional" required><br><br>
-      
-      <strong>Descripción</strong><br>
-      <textarea name="Descripcion" cols="20" rows="5"></textarea><br><br>
       
       <input type="submit" value="Guardar Libro"> 
     </form>
