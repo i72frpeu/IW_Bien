@@ -29,3 +29,4 @@
 1590143617892	Move 'Registro.jsp' to 'Controlador'
 1590146910556	Encapsulate field 'Reservado'
 1590147009365	Encapsulate field 'reservado'
+1590156798082	Rename type 'Reserva'
