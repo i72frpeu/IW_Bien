@@ -25,10 +25,12 @@ public class ListalibrosBean {
 		if(listaLibros.size() != 0) {
 			
 		}else {
-			for(int i = 0; i < 2; i++) {
+			for(int i = 0; i < 8; i++) {
 				LibroDAO aux = new LibroDAO();
 				aux.load_libro_aleatorio(i+1);
-				listaLibros.add(aux);
+				if(aux.getAutor() != null) {
+					listaLibros.add(aux);
+				}
 			}
 		}
 	}

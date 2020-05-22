@@ -16,13 +16,35 @@ table.tablalibro
 {
 	width: 100%;
 	border: 2px;
-	border-spacing: 20px 10px;
 	height: 100%;
 }
 
 .tdlibro
 {
 	border: 2px solid black;
+}
+
+.autor
+{
+	position: relative;
+	left: 40px;
+}
+
+.paginas
+{
+	position: relative;
+	left: 10px;
+}
+
+.imagenlibro
+{
+	position: relative;
+	top: 1px;
+	left: 40px;
+	height: 100px;
+	width: 100px;
+	border: 1px solid #ddd;
+  	border-radius: 4px;
 }
 
 .guardar_libro
@@ -32,4 +54,15 @@ table.tablalibro
 	position: fixed;
 	top: 75%;
 	left: 85%;
+}
+
+.nombrelibro
+{
+	height: 80px;
+	width: 100px;
+}
+
+.autorlibro{
+	height: 80px;
+	width: 100px;
 }

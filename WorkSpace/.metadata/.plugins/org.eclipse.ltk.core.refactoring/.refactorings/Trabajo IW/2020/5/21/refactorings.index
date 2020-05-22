@@ -26,3 +26,6 @@
 1589989585928	Encapsulate field 'Encuadernamiento'
 1589992612975	Encapsulate field 'estado'
 1590076703423	Move file
+1590143617892	Move 'Registro.jsp' to 'Controlador'
+1590146910556	Encapsulate field 'Reservado'
+1590147009365	Encapsulate field 'reservado'

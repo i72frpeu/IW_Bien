@@ -1,4 +1,4 @@
-package src;
+package trabajo.IW;
 
 import java.io.*;
 import java.util.Scanner;

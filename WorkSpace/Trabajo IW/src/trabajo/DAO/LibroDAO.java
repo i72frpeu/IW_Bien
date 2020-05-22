@@ -16,6 +16,7 @@ public class LibroDAO {
 	private String Editorial;
 	private int Paginas;
 	private int Encuadernamiento;
+	private int Reservado;
 	
 	public int getId_libro() {
 		return id_libro;
@@ -65,7 +66,6 @@ public class LibroDAO {
 		File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Libros.csv");
 		if(f1.exists()) {
 			  Scanner fich = null;
-
 			  try {
 				  fich = new Scanner(f1);
 				  String[] linea = null;
@@ -112,6 +112,7 @@ public class LibroDAO {
 					  this.setEditorial(linea[4]);
 					  this.setPaginas(Integer.parseInt(linea[5]));
 					  this.setEncuadernamiento(Integer.parseInt(linea[6]));
+					  this.setReservado(Integer.parseInt(linea[7]));
 					  return true;
 				  }
 				 }
@@ -124,9 +125,9 @@ public class LibroDAO {
 	  return false;
 	}
 
-	public boolean guardarLibro(int id, String titulo, String autor, String materia, String editorial, int paginas, int encuadernamiento) throws IOException{
+	public boolean guardarLibro(int id, String titulo, String autor, String materia, String editorial, int paginas, int encuadernamiento, int reservado) throws IOException{
 
-  	  String data = id + "," + titulo + "," + autor + "," + materia + "," + editorial + "," + paginas + "," + encuadernamiento;
+  	  String data = id + "," + titulo + "," + autor + "," + materia + "," + editorial + "," + paginas + "," + encuadernamiento + "," + reservado;
   	  Writer output = new BufferedWriter(new FileWriter("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Libros.csv",true));
   	  
   	  try{
@@ -161,5 +162,11 @@ public class LibroDAO {
 			 return cont+1; 
 	  }
 		return -1;
+	}
+	public int getReservado() {
+		return Reservado;
+	}
+	public void setReservado(int reservado) {
+		Reservado = reservado;
 	}
 }

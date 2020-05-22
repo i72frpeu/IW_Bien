@@ -8,6 +8,7 @@ public class LibroBean {
 	private String Editorial;
 	private int Paginas;
 	private int Encuadernamiento;
+	private int reservado;
 	
 	public int getId_libro() {
 		return id_libro;
@@ -50,5 +51,11 @@ public class LibroBean {
 	}
 	public void setEncuadernamiento(int encuadernamiento) {
 		Encuadernamiento = encuadernamiento;
+	}
+	public int getReservado() {
+		return reservado;
+	}
+	public void setReservado(int reservado) {
+		this.reservado = reservado;
 	}
 }

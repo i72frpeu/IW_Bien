@@ -4,6 +4,7 @@ package trabajo.IW;
 import java.io.*;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.List;
 
 public class PrestamoBean {
 	
@@ -83,7 +84,7 @@ public class PrestamoBean {
 	}
 	
 	public static boolean comprobarId(int id) throws FileNotFoundException {
-		File f1 = new File("C:/Users/javy2/Desktop/prestamos.csv");
+		File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv");
 		boolean comprueba = false;
 		if(f1.exists()) {
                 Scanner fich;
@@ -106,7 +107,7 @@ public class PrestamoBean {
                 System.out.println("El prestamo que se intenta introducir desde el fichero ya existe");
             }else {
                 PrestamoBean aux = new PrestamoBean(id_prestamo, id_libro, titulo, autor, usuario, fecha_inicio_prestamo);
-                Writer output = new BufferedWriter(new FileWriter("C:/Users/javy2/Desktop/prestamos.csv",true));
+                Writer output = new BufferedWriter(new FileWriter("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv",true));
                 output.append("\n" + String.valueOf(id_prestamo) + "," + id_libro + "," + titulo + "," + autor + "," + usuario + "," + String.valueOf(fecha_inicio_prestamo) + "," + String.valueOf(fecha_inicio_prestamo+30));
                             
                 output.close();
@@ -124,7 +125,7 @@ public class PrestamoBean {
 	    	BufferedReader br = null;
 	        FileWriter fw = null;
 	        BufferedWriter bw = null;
-	    	ArrayList lineasAcopiar = new ArrayList();
+	    	List lineasAcopiar = new ArrayList();
 	    	try{
 	    		fr = new FileReader("C:/Users/javy2/Desktop/prestamos.csv");
 	            br = new BufferedReader(fr);

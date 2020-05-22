@@ -1,0 +1,67 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<jsp:useBean id="libroactivo" class="trabajo.IW.LibroBean" scope="session" />
+<jsp:useBean id="Usuario" class="trabajo.IW.UsuarioBean" scope="session" />
+<%
+if(Usuario.getTipo() == 1){
+%>
+<%@ include file="../Includes/header.jsp" %>
+<% 
+}else{
+	if(Usuario.getTipo() == 2){
+%>
+<%@ include file="../Includes/headerprof.jsp" %>
+<% 
+}else{
+	if(Usuario.getTipo() == 3){
+%>
+<%@ include file="../Includes/headeradmin.jsp" %>
+<%
+}}}
+%>
+
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Libro</title>
+	<link rel="stylesheet" type="text/css" href="../CSS/wf4.0.css">
+</head>
+
+<body>
+  <!--Roll de artículos-->
+  
+  <div class="buscador">
+  	<form>
+  		<table>
+  		<tr>
+  		<td><input type="text" name="buscar" required></td>
+  		<td><input type="submit" value="Buscar"></td> 
+  		</tr>
+  		</table>
+  	</form>
+  </div>
+  
+  <div class="div_home">
+  		<table class = "tablalibro">
+		<tr class = "nombrelibro">
+			<td rowspan = 3> <img src="../img/libro.png" alt="IMG_USER" class="imagenlibro"> </td> <td> <h2>ID: <%= libroactivo.getId_libro() %></h2>  </td> <td> <h2><%= libroactivo.getTitulo() %></h2>  </td> <td> <% if(libroactivo.getReservado() == 1){ %> <h2> Libre </h2> <%}else{ %> <h2> Ocupado </h2><% }%></td>
+		</tr>
+		<tr class = "nombrelibro">
+			<tdcolspan = 2> <h4> <%= libroactivo.getAutor() %> </h4></td> <td class = "tdlibro"> <%= libroactivo.getPaginas() %> </td>
+		</tr>
+		<tr>
+			<td class = "tdlibro"> <%= libroactivo.getMateria() %> </td> <td class = "tdlibro"> <%= libroactivo.getEditorial() %> </td> <td class = "tdlibro" rowspan = 2> <%= libroactivo.getEncuadernamiento() %> </td>
+		</tr>
+		<tr>
+			<td class = "tdlibro" colspan = 2> Descripcion </td> <td class = "tdlibro"> <a href = "Formulario Reservas.jsp"><button>Reservar</button></a> </td>
+		</tr>
+	</table>
+  </div>
+
+
+</body>
+
+</html>

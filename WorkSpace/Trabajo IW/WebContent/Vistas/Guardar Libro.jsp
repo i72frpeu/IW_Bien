@@ -10,7 +10,7 @@
 
 <body>
   <!--Mensaje de bienvenida-->
-  <h2 class="title_wf2-1"><strong>Pedir Expansion</strong></h2>
+  <h2 class="title_wf2-1"><strong>Guardar Nuevo Libro</strong></h2>
 
   <!--NOMBRE Y APELLIDOS-->
   <div class="registro">

@@ -10,7 +10,7 @@
 
 	int i = x.numeroLibros();
 
-	x.guardarLibro(i, request.getParameter("titulo"), request.getParameter("autor"), request.getParameter("materia"), request.getParameter("editorial"), Integer.parseInt(request.getParameter("paginas")), Integer.parseInt(request.getParameter("encuadernamiento")));
+	x.guardarLibro(i, request.getParameter("titulo"), request.getParameter("autor"), request.getParameter("materia"), request.getParameter("editorial"), Integer.parseInt(request.getParameter("paginas")), Integer.parseInt(request.getParameter("encuadernamiento")), 1);
 
 	x.setId_libro(i);
 	x.setTitulo(request.getParameter("titulo"));
@@ -19,6 +19,7 @@
 	x.setEditorial(request.getParameter("editorial"));
 	x.setPaginas(Integer.parseInt(request.getParameter("paginas")));
 	x.setEncuadernamiento(Integer.parseInt(request.getParameter("encuadernamiento")));
+	x.setReservado(1);
 	
 	listaLibros.addlibro(x);
 	
@@ -32,6 +33,7 @@
 		libroactivo.setPaginas(x.getPaginas());
 		libroactivo.setEditorial(x.getEditorial());
 		libroactivo.setEncuadernamiento(x.getEncuadernamiento());
+		libroactivo.setReservado(x.getReservado());
 		if(Usuario.getTipo() == 1){
 			response.sendRedirect("../Vistas/Libro.jsp");
 		}else{

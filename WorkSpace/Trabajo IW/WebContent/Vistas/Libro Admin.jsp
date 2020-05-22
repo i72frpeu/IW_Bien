@@ -45,17 +45,17 @@ if(Usuario.getTipo() == 1){
   
   <div class="div_home">
   		<table class = "tablalibro">
-		<tr>
-			<td class = "tdlibro" rowspan = 4> Imagen </td> <td class = "tdlibro"> <%= libroactivo.getId_libro() %> </td> <td class = "tdlibro"> <%= libroactivo.getTitulo() %> </td> <td class = "tdlibro"> Estado </td>
+		<tr class = "nombrelibro">
+			<td rowspan = 3> <img src="../img/libro.png" alt="IMG_USER" class="imagenlibro"> </td> <td> <h2 class = "autor">ID: <%= libroactivo.getId_libro() %></h2>  </td> <td> <h2><%= libroactivo.getTitulo() %></h2>  </td> <td> Libre o Ocupado </td>
+		</tr>
+		<tr class = "autorlibro">
+			<td colspan = 2> <h4 class = "autor"> Autor:  <%= libroactivo.getAutor() %> </h4></td> <td> <p class = "paginas">Paginas: <%= libroactivo.getPaginas() %> </p></td>
+		</tr>
+		<tr class = "autorlibro">
+			<td> Tipo: <%= libroactivo.getMateria() %> </td> <td><p class = "paginas"> Editorial: <%= libroactivo.getEditorial() %> </p> </td> <td> <% if(libroactivo.getEncuadernamiento() == 1){ %> Tapa Blanda <%}else{ %> Tapa Dura <% } %></td>
 		</tr>
 		<tr>
-			<td class = "tdlibro" colspan = 2> <%= libroactivo.getAutor() %> </td> <td class = "tdlibro"> <%= libroactivo.getPaginas() %> </td>
-		</tr>
-		<tr>
-			<td class = "tdlibro"> <%= libroactivo.getMateria() %> </td> <td class = "tdlibro"> <%= libroactivo.getEditorial() %> </td> <td class = "tdlibro" rowspan = 2> <%= libroactivo.getEncuadernamiento() %> </td>
-		</tr>
-		<tr>
-			<td class = "tdlibro" colspan = 2> Descripcion </td> <td class = "tdlibro"> <a href = "Formulario Prestar.jsp"><button>Prestar</button></a> </td>
+			<td class = "tdlibro" colspan = 3> Aqui habria una descripcion del libro </td> <td> <a href = "Formulario Prestamo.jsp"><button>Prestar</button></a> </td>
 		</tr>
 	</table>
   </div>

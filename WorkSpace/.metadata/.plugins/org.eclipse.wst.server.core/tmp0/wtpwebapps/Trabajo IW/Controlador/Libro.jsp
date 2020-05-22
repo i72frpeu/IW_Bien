@@ -8,8 +8,6 @@
 
 	LibroDAO x = new LibroDAO();
 	
-	System.out.println(request.getParameter("titulo"));
-	
 	String libro = request.getParameter("titulo");
 	
 	if(x.load_libro(libro) == true){
@@ -20,6 +18,7 @@
 		libroactivo.setPaginas(x.getPaginas());
 		libroactivo.setEditorial(x.getEditorial());
 		libroactivo.setEncuadernamiento(x.getEncuadernamiento());
+		libroactivo.setReservado(x.getReservado());
 		if(Usuario.getTipo() == 1){
 			response.sendRedirect("../Vistas/Libro.jsp");
 		}else{
