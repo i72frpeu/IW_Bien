@@ -1,11 +1,6 @@
 package trabajo.IW;
 
 
-import java.io.*;
-import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.List;
-
 public class PrestamoBean {
 	
 	private int id_prestamo;
@@ -13,8 +8,31 @@ public class PrestamoBean {
 	private String titulo;
 	private String autor;
 	private String usuario;
+	private int carnet;
 	private int fecha_inicio_prestamo;
 	private int fecha_final_prestamo;
+	
+	public PrestamoBean() {
+		this.id_prestamo = -1;
+		this.id_libro = -1;
+	    this.titulo = null;
+	    this.autor = null;
+	    this.usuario = null;
+	    this.carnet = -1;
+	    this.fecha_inicio_prestamo = -1;
+	    this.fecha_final_prestamo = -1;
+	}
+	
+	public PrestamoBean(int id_prestamo, int id_libro, String titulo, String autor, String usuario, int carnet, int fecha_inicio_prestamo) {
+		this.id_prestamo = id_prestamo;
+		this.id_libro = id_libro;
+	    this.titulo = titulo;
+	    this.autor = autor;
+	    this.usuario = usuario;
+	    this.carnet = carnet;
+	    this.fecha_inicio_prestamo = fecha_inicio_prestamo;
+	    this.fecha_final_prestamo = this.fecha_inicio_prestamo + 30;
+	}
 
 	public int getId_prestamo() {
 		return id_prestamo;
@@ -54,6 +72,14 @@ public class PrestamoBean {
 
 	public void setUsuario(String usuario) {
 		this.usuario = usuario;
+	}
+
+	public int getCarnet() {
+		return carnet;
+	}
+
+	public void setCarnet(int carnet) {
+		this.carnet = carnet;
 	}
 
 	public int getFecha_inicio_prestamo() {
