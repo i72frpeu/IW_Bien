@@ -27,7 +27,7 @@ public class ListaReservasBean {
 		}else {
 			for(int i = 0; i < 8; i++) {
 				ReservaDAO aux = new ReservaDAO();
-				aux.loadReserva(i+1);
+				aux.load_reserva(i+1);
 				if(aux.getTitulo() != null) {
 					listaReservas.add(aux);
 				}

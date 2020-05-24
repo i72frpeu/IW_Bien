@@ -1,4 +1,4 @@
-package reserva.DAO;
+package trabajo.DAO;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -59,8 +59,8 @@ public class ReservaDAO{
 	    this.fecha_final_Reserva = fecha_inicio_Reserva+30;
 	  }
 
-		public boolean load_reserva(String Nombre) {
-			File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Libros.csv");
+		public boolean load_reserva(int id) {
+			File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Reservas.csv");
 			if(f1.exists()) {
 			  Scanner fich = null;
 			  try {
@@ -69,8 +69,8 @@ public class ReservaDAO{
 
 				  while(fich.hasNext()) {
 					  linea = fich.nextLine().split(",");
-					  String nombre = linea[1];
-					  if(nombre.equals(Nombre)) {
+					  int x = Integer.parseInt(linea[0]);
+					  if(id == x) {
 						  this.setIdReserva(Integer.parseInt(linea[0]));
 						  this.setTitulo(linea[1]);
 						  this.setUsuario(linea[2]);
@@ -91,18 +91,36 @@ public class ReservaDAO{
 		
 		public static boolean guardarReserva(int idReserva, String titulo, String usuario, String carnet_universidad, int fecha_inicio_Reserva) throws FileNotFoundException{
 		    try{
-		      if(comprobarId(idReserva)) {
-		                System.out.println("El libro a reservar no esta disponible en este momento");
-		            }else {
 		                Writer output = new BufferedWriter(new FileWriter("C:/User/reservas.csv"));
 		                output.append(idReserva + "," + titulo + "," + usuario + "," + carnet_universidad + "," + fecha_inicio_Reserva + "," + (fecha_inicio_Reserva+30) + "\n");
 		                            
 		                output.close();
 		                System.out.println("Reserva realizada correctamente");
 		                return true;
-		      }
 		        }catch(Exception e){System.out.println("Error: " + e);}
+		    return false;
 		  }
+		
+		public static int comprobarId(int id) throws FileNotFoundException{
+		    File f1 = new File("C:/User/reservas.csv");
+			  if(f1.exists()) {
+				  Scanner fich = null;
+				  int cont = 0;
+				  try {
+					  fich = new Scanner(f1);
+					  while(fich.hasNext()) {
+						  	fich.nextLine();
+						  	cont++;
+					  }
+				  }catch(IOException e) {
+						System.out.println(e);
+				  }finally{
+						fich.close();
+				  }
+				 return cont+1; 
+		  }
+			return -1;
+		}
 
 
 		  /*public static void cancelarReserva(int id) throws FileNotFoundException{

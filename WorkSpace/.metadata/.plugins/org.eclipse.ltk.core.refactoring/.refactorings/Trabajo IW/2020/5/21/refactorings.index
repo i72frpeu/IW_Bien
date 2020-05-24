@@ -30,3 +30,5 @@
 1590146910556	Encapsulate field 'Reservado'
 1590147009365	Encapsulate field 'reservado'
 1590156798082	Rename type 'Reserva'
+1590333102350	Rename compilation unit 'reservaDAO.java'
+1590333283352	Rename compilation unit 'reservaBean.java'
