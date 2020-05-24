@@ -59,7 +59,7 @@ public class ReservaDAO{
 	    this.fecha_final_Reserva = fecha_inicio_Reserva+30;
 	  }
 
-		public boolean load_libro(String Nombre) {
+		public boolean load_reserva(String Nombre) {
 			File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Libros.csv");
 			if(f1.exists()) {
 			  Scanner fich = null;
