@@ -109,19 +109,33 @@ public class PrestamoDAO {
 		return comprueba;
 	}
 	
-	public static void anadirPrestamos(int id_prestamo, int id_libro, String titulo, String autor, String usuario, int fecha_inicio_prestamo) throws FileNotFoundException {
-		try{
-			if(comprobarId(id_prestamo)) {
-                System.out.println("El prestamo que se intenta introducir desde el fichero ya existe");
-            }else {
-                new PrestamoDAO(id_prestamo, id_libro, titulo, autor, usuario, fecha_inicio_prestamo);
-                Writer output = new BufferedWriter(new FileWriter("D:\\\\unaif\\\\Documents\\\\Universidad\\\\3.2\\\\IW\\\\Trabajo\\\\Trabajo\\\\IW_Bien\\\\WorkSpace\\\\Trabajo IW\\\\WebContent\\\\Ficheros\\\\Prestamos.csv",true));
-                output.append("\n" + String.valueOf(id_prestamo) + "," + String.valueOf(id_libro) + "," + titulo + "," + autor + "," + usuario + "," + String.valueOf(fecha_inicio_prestamo) + "," + String.valueOf(fecha_inicio_prestamo+30));
-                            
-                output.close();
-                System.out.println("Prestamo anadido correctamente");
+	public static int GenerarId() throws FileNotFoundException {
+		File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv");
+		int linea=0;
+		if(f1.exists()) {
+                	Scanner fich;
+			fich = new Scanner(f1);
+				
+			while(fich.hasNextLine()) {
+				fich.nextLine();
+			    	linea += 1;
 			}
-        }catch(Exception e){System.out.println("Error: " + e);}
+                fich.close();
+        	}
+		return linea+1;
+	}
+	
+	public static void anadirPrestamos(int id_libro, String titulo, String autor, String usuario, int fecha_inicio_prestamo) throws FileNotFoundException {
+		try{
+		    int id_prestamo=GenerarId();
+		    new PrestamoDAO(id_prestamo, id_libro, titulo, autor, usuario, fecha_inicio_prestamo);
+		    Writer output = new BufferedWriter(new FileWriter("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv",true));
+		    output.append("\n" + String.valueOf(id_prestamo) + "," + String.valueOf(id_libro) + "," + titulo + "," + autor + "," + usuario + "," + String.valueOf(fecha_inicio_prestamo) + "," + String.valueOf(fecha_inicio_prestamo+30));
+
+		    output.close();
+		    System.out.println("Prestamo anadido correctamente");
+			
+        	}catch(Exception e){System.out.println("Error: " + e);}
 	}
     
     public static void eliminarPrestamo(int id) throws FileNotFoundException {
