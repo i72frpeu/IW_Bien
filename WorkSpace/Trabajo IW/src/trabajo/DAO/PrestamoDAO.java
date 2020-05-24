@@ -3,7 +3,7 @@ package trabajo.DAO;
 
 import java.io.*;
 import java.util.Scanner;
-import java.util.ArrayList;
+
 
 public class PrestamoDAO {
 	
@@ -92,7 +92,7 @@ public class PrestamoDAO {
 	}
 	
 	public static boolean comprobarId(int id) throws FileNotFoundException {
-		File f1 = new File("D:\\\\unaif\\\\Documents\\\\Universidad\\\\3.2\\\\IW\\\\Trabajo\\\\Trabajo\\\\IW_Bien\\\\WorkSpace\\\\Trabajo IW\\\\WebContent\\\\Ficheros\\\\Prestamos.csv");
+		File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv");
 		boolean comprueba = false;
 		if(f1.exists()) {
                 Scanner fich;
@@ -115,7 +115,7 @@ public class PrestamoDAO {
                 System.out.println("El prestamo que se intenta introducir desde el fichero ya existe");
             }else {
                 new PrestamoDAO(id_prestamo, id_libro, titulo, autor, usuario, fecha_inicio_prestamo);
-                Writer output = new BufferedWriter(new FileWriter("D:\\\\unaif\\\\Documents\\\\Universidad\\\\3.2\\\\IW\\\\Trabajo\\\\Trabajo\\\\IW_Bien\\\\WorkSpace\\\\Trabajo IW\\\\WebContent\\\\Ficheros\\\\Prestamos.csv",true));
+                Writer output = new BufferedWriter(new FileWriter("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv",true));
                 output.append("\n" + String.valueOf(id_prestamo) + "," + String.valueOf(id_libro) + "," + titulo + "," + autor + "," + usuario + "," + String.valueOf(fecha_inicio_prestamo) + "," + String.valueOf(fecha_inicio_prestamo+30));
                             
                 output.close();
@@ -124,7 +124,7 @@ public class PrestamoDAO {
         }catch(Exception e){System.out.println("Error: " + e);}
 	}
     
-    public static void eliminarPrestamo(int id) throws FileNotFoundException {
+   /* public static void eliminarPrestamo(int id) throws FileNotFoundException {
     	if(!comprobarId(id)) {
     		System.out.println("El prestamo con id " + id + " no se encuentra");
     	}else {
@@ -135,7 +135,7 @@ public class PrestamoDAO {
 	        BufferedWriter bw = null;
 	    	ArrayList<String> lineasAcopiar = new ArrayList<String>();
 	    	try{
-	    		fr = new FileReader("D:\\\\unaif\\\\Documents\\\\Universidad\\\\3.2\\\\IW\\\\Trabajo\\\\Trabajo\\\\IW_Bien\\\\WorkSpace\\\\Trabajo IW\\\\WebContent\\\\Ficheros\\\\Prestamos.csv");
+	    		fr = new FileReader("D:\\unaif\\Documents\\Universidad\\3.2\\\\IW\\\\Trabajo\\\\Trabajo\\\\IW_Bien\\\\WorkSpace\\\\Trabajo IW\\\\WebContent\\\\Ficheros\\\\Prestamos.csv");
 	            br = new BufferedReader(fr);
 	            while(br.ready()){
 	                linea = br.readLine();
@@ -157,11 +157,11 @@ public class PrestamoDAO {
 	
 	        }catch(Exception e){System.out.println("Error: " + e);}
     	}
-    }    
+    }    */
     
     public boolean load_prestamo_aleatorio(int random) {
 
-		File f1 = new File("D:\\\\unaif\\\\Documents\\\\Universidad\\\\3.2\\\\IW\\\\Trabajo\\\\Trabajo\\\\IW_Bien\\\\WorkSpace\\\\Trabajo IW\\\\WebContent\\\\Ficheros\\\\Prestamos.csv");
+		File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv");
 		System.out.println(random);
 		if(f1.exists()) {
 			  Scanner fich = null;
@@ -192,8 +192,8 @@ public class PrestamoDAO {
 		  return false;
 	}
     
-    public boolean load_prestamo(int prestamo) {
-		File f1 = new File("D:\\\\unaif\\\\Documents\\\\Universidad\\\\3.2\\\\IW\\\\Trabajo\\\\Trabajo\\\\IW_Bien\\\\WorkSpace\\\\Trabajo IW\\\\WebContent\\\\Ficheros\\\\Prestamos.csv");
+   /* public boolean load_prestamo(int prestamo) {
+		File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv");
 		if(f1.exists()) {
 		  Scanner fich = null;
 		  try {
@@ -220,5 +220,5 @@ public class PrestamoDAO {
 		}
 	  }
 		return false;
-    }
+    }*/
 }

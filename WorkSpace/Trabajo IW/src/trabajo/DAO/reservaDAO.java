@@ -55,8 +55,8 @@ public class ReservaDAO{
 	  public int getFecha_final_Reserva(){
 	    return fecha_final_Reserva;
 	  }
-	  public void setfecha_final_Reserva(int fecha_inicio_Reserva){
-	    this.fecha_final_Reserva = fecha_inicio_Reserva+30;
+	  public void setfecha_final_Reserva(int fecha_fin_Reserva){
+	    this.fecha_final_Reserva = fecha_fin_Reserva;
 	  }
 
 		public boolean load_reserva(int id) {
@@ -76,7 +76,7 @@ public class ReservaDAO{
 						  this.setUsuario(linea[2]);
 						  this.setCarnet_universidad(linea[3]);
 						  this.setfecha_inicio_Reserva(Integer.parseInt(linea[4]));
-						  this.setfecha_final_Reserva(Integer.parseInt(linea[5]));;
+						  this.setfecha_final_Reserva(Integer.parseInt(linea[5]));
 						  return true;
 					  }
 					 }
@@ -89,9 +89,71 @@ public class ReservaDAO{
 		  return false;
 		}
 		
-		public static boolean guardarReserva(int idReserva, String titulo, String usuario, String carnet_universidad, int fecha_inicio_Reserva) throws FileNotFoundException{
+		public boolean load_reserva(String usuario) {
+			File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Reservas.csv");
+			if(f1.exists()) {
+			  Scanner fich = null;
+			  try {
+				  fich = new Scanner(f1);
+				  String[] linea = null;
+
+				  while(fich.hasNext()) {
+					  linea = fich.nextLine().split(",");
+					  String user = linea[2];
+					  if(user.equals(usuario)) {
+						  this.setIdReserva(Integer.parseInt(linea[0]));
+						  this.setTitulo(linea[1]);
+						  this.setUsuario(linea[2]);
+						  this.setCarnet_universidad(linea[3]);
+						  this.setfecha_inicio_Reserva(Integer.parseInt(linea[4]));
+						  this.setfecha_final_Reserva(Integer.parseInt(linea[5]));
+						  return true;
+					  }
+					 }
+			  }catch(IOException e) {
+					System.out.println(e);
+			  }finally{
+					fich.close();
+			}
+		  }
+		  return false;
+		}
+		
+		
+		public boolean load_reserva(String usuario, String Titulo) {
+			File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Reservas.csv");
+			if(f1.exists()) {
+			  Scanner fich = null;
+			  try {
+				  fich = new Scanner(f1);
+				  String[] linea = null;
+
+				  while(fich.hasNext()) {
+					  linea = fich.nextLine().split(",");
+					  String user = linea[2];
+					  String titulo = linea[1];
+					  if(user.equals(usuario) && titulo.equals(Titulo)) {
+						  this.setIdReserva(Integer.parseInt(linea[0]));
+						  this.setTitulo(linea[1]);
+						  this.setUsuario(linea[2]);
+						  this.setCarnet_universidad(linea[3]);
+						  this.setfecha_inicio_Reserva(Integer.parseInt(linea[4]));
+						  this.setfecha_final_Reserva(Integer.parseInt(linea[5]));
+						  return true;
+					  }
+					 }
+			  }catch(IOException e) {
+					System.out.println(e);
+			  }finally{
+					fich.close();
+			}
+		  }
+		  return false;
+		}
+		
+		public boolean guardarReserva(int idReserva, String titulo, String usuario, String carnet_universidad, int fecha_inicio_Reserva) throws FileNotFoundException{
 		    try{
-		                Writer output = new BufferedWriter(new FileWriter("C:/User/reservas.csv"));
+		                Writer output = new BufferedWriter(new FileWriter("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Reservas.csv", true));
 		                output.append(idReserva + "," + titulo + "," + usuario + "," + carnet_universidad + "," + fecha_inicio_Reserva + "," + (fecha_inicio_Reserva+30) + "\n");
 		                            
 		                output.close();
@@ -101,8 +163,8 @@ public class ReservaDAO{
 		    return false;
 		  }
 		
-		public static int comprobarId(int id) throws FileNotFoundException{
-		    File f1 = new File("C:/User/reservas.csv");
+		public int comprobarId() throws FileNotFoundException{
+		    File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Reservas.csv");
 			  if(f1.exists()) {
 				  Scanner fich = null;
 				  int cont = 0;

@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<jsp:useBean id="Usuario" class="trabajo.IW.UsuarioBean" scope="session" />
+<jsp:useBean id="libroactivo" class="trabajo.IW.LibroBean" scope="session" />
+
+
 <!DOCTYPE html>
 <html>
 
@@ -14,15 +19,15 @@
 
   <!--NOMBRE Y APELLIDOS-->
   <div class="registro">
-    <form action="Reserva.jsp" method="post" target="_self">
+    <form action="../Controlador/Reserva.jsp" method="post" target="_self">
       <strong>Titulo</strong></td><br>
-      <input type="text" name="titulo" required><br><br>
+      <input type="text" name="titulo" value="<%= libroactivo.getTitulo() %>" required><br><br>
       
       <strong>Usuario</strong><br>
-      <input type="text" name="usuario" required><br><br>
+      <input type="text" name="usuario" value="<%= Usuario.getUsuario() %>" required><br><br>
       
       <strong>Carnet Universitario</strong><br>
-      <input type="text" name="carnet" required><br><br>
+      <input type="text" name="carnet" value="<%= Usuario.getCarnet() %>" required><br><br>
       
       <strong>Fecha</strong><br>
       <input type="text" name="Fecha" required><br><br>

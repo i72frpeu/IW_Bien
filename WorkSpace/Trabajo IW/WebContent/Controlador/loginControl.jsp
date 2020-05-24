@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <jsp:useBean id="Usuario" class="trabajo.IW.UsuarioBean" scope="session" />
 <jsp:useBean id="listaLibros" class="trabajo.IW.ListalibrosBean" scope="session" />
+<jsp:useBean id="listaReservas" class="trabajo.IW.ListaReservasBean" scope="session" />
 <%
 	
 
@@ -9,6 +10,7 @@
 	if(Usuario.iniciarSesion(request.getParameter("email"), request.getParameter("contr")) == true){
 		
 		listaLibros.loadLibros();
+		listaReservas.loadReserva();
 		
 		if(Usuario.getTipo() == 1){
 			response.sendRedirect("../Home (Libros).jsp");

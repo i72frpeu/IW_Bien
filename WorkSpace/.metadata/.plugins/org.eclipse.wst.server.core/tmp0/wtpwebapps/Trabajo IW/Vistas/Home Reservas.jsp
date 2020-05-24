@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <jsp:useBean id="Usuario" class="trabajo.IW.UsuarioBean" scope="session" />
+<jsp:useBean id="listaReservas" class="trabajo.IW.ListaReservasBean" scope="session" />
 <%
 if(Usuario.getTipo() == 1){
 %>
@@ -44,15 +45,19 @@ if(Usuario.getTipo() == 1){
 
   <div class="div_home">
     <table class="dos">
-    <% for (int i = 0; i < 8; i++){ %>
+    <% for (int i = 0; i < listaReservas.getsize(); i++){ %>
         <tr>
           <td>
               <table class="uno">
                   <tr>
-                    <td class="td_user_img"><a href=""><img src="../img/libro.png" alt="IMG_BOOK" class="img_user_2"></a></td>
-                    <td class="td_user_des">Usuario</td>
-                    <td class="tdlibro"> Fecha Fin </td>
-                    <td> <a href="Reserva.jsp"><button name="foro" class="boton_user">Ver Reserva</button></a><td>
+                    <td class="tdlibro"> <%= listaReservas.getReserva(i).getTitulo() %></td>
+                    <td class="tdlibro"> <%= listaReservas.getReserva(i).getUsuario() %> </td>
+                    <td class="tdlibro"> <%= listaReservas.getReserva(i).getFecha_final_Reserva() %> </td>
+                    <td><form action = ../Controlador/Reserva2.jsp>
+                    	<input type="hidden" name="titulo" value=<%= listaReservas.getReserva(i).getTitulo() %>>
+    					<input type="hidden" name="usuario" value=<%= listaReservas.getReserva(i).getUsuario() %>>
+    					<input type="submit" value="Reserva">
+    				</form> <td>
                   </tr>
                 </table>
           </td>

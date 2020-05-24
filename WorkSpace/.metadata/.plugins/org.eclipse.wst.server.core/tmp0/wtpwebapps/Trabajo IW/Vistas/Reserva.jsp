@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <jsp:useBean id="Usuario" class="trabajo.IW.UsuarioBean" scope="session" />
+<jsp:useBean id="reservaactiva" class="trabajo.IW.ReservaBean" scope="session" />
 <%
 if(Usuario.getTipo() == 1){
 %>
@@ -34,13 +35,13 @@ if(Usuario.getTipo() == 1){
   <div class="div_home">
   		<table class = "tablalibro">
 		<tr>
-			<td class = "tdlibro" rowspan = 4> Imagen </td> <td class = "tdlibro"> ID </td> <td class = "tdlibro"> Titulo </td>
+			<td class = "tdlibro" rowspan = 4> Imagen </td> <td class = "tdlibro"> ID: <%= reservaactiva.getIdReserva() %> </td> <td class = "tdlibro"> <%= reservaactiva.getTitulo() %> </td>
 		</tr>
 		<tr>
-			<td class = "tdlibro" > Usuario </td> <td class = "tdlibro"> Carnet</td>
+			<td class = "tdlibro" > <%= reservaactiva.getUsuario() %> </td> <td class = "tdlibro"> <%= reservaactiva.getCarnet_universidad() %></td>
 		</tr>
 		<tr>
-			<td class = "tdlibro"> Fecha Inicio </td> <td class = "tdlibro"> Fecha Final </td>
+			<td class = "tdlibro"> <%= reservaactiva.getFecha_inicio_Reserva() %> </td> <td class = "tdlibro"> <%= reservaactiva.getFecha_final_Reserva() %> </td>
 		</tr>
 		<tr>
 			<td class = "tdlibro"> <a href = "Reservas.jsp"><button>Eliminar Reserva</button></a> </td>

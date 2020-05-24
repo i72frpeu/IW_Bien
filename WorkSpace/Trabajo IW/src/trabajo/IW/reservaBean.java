@@ -1,9 +1,5 @@
 package trabajo.IW;
 
-import java.io.*;
-import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ReservaBean{
 
@@ -13,6 +9,15 @@ public class ReservaBean{
   private String carnet_universidad;
   private int fecha_inicio_Reserva;
   private int fecha_final_Reserva;
+  
+  public ReservaBean() {
+	  this.idReserva = -1;
+	  this.titulo = null;
+	  this.usuario = null;
+	  this.carnet_universidad = null;
+	  this.fecha_inicio_Reserva = -1;
+	  this.fecha_inicio_Reserva = -1;
+  }
 
   public ReservaBean(int idReserva, String titulo, String usuario, String carnet_universidad, int fecha_inicio_Reserva){
     this.idReserva = idReserva;
@@ -61,7 +66,7 @@ public class ReservaBean{
   public int getFecha_final_Reserva(){
     return fecha_final_Reserva;
   }
-  public void setfecha_final_Reserva(int fecha_inicio_Reserva){
-    this.fecha_final_Reserva = fecha_inicio_Reserva+30;
+  public void setfecha_final_Reserva(int fecha_final_Reserva){
+    this.fecha_final_Reserva = fecha_final_Reserva;
   }
 }

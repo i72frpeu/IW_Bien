@@ -1,11 +1,6 @@
 package trabajo.IW;
 
 
-import java.io.*;
-import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.List;
-
 public class PrestamoBean {
 	
 	private int id_prestamo;
