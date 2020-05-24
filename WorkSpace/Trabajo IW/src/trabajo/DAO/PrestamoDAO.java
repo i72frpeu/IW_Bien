@@ -12,6 +12,7 @@ public class PrestamoDAO {
 	private String titulo;
 	private String autor;
 	private String usuario;
+	private int carnet;
 	private int fecha_inicio_prestamo;
 	private int fecha_final_prestamo;
 	
@@ -21,16 +22,18 @@ public class PrestamoDAO {
 	    this.titulo = null;
 	    this.autor = null;
 	    this.usuario = null;
+	    this.carnet = -1;
 	    this.fecha_inicio_prestamo = -1;
 	    this.fecha_final_prestamo = -1;
 	}
 
-	public PrestamoDAO(int id_prestamo, int id_libro, String titulo, String autor, String usuario, int fecha_inicio_prestamo) {
+	public PrestamoDAO(int id_prestamo, int id_libro, String titulo, String autor, String usuario, int carnet, int fecha_inicio_prestamo) {
 		this.id_prestamo = id_prestamo;
 		this.id_libro = id_libro;
 	    this.titulo = titulo;
 	    this.autor = autor;
 	    this.usuario = usuario;
+	    this.carnet = carnet;
 	    this.fecha_inicio_prestamo = fecha_inicio_prestamo;
 	    this.fecha_final_prestamo = this.fecha_inicio_prestamo + 30;
 	}
@@ -75,6 +78,14 @@ public class PrestamoDAO {
 		this.usuario = usuario;
 	}
 
+	public int getCarnet() {
+		return carnet;
+	}
+
+	public void setCarnet(int carnet) {
+		this.carnet = carnet;
+	}
+
 	public int getFecha_inicio_prestamo() {
 		return fecha_inicio_prestamo;
 	}
@@ -92,7 +103,7 @@ public class PrestamoDAO {
 	}
 	
 	public static boolean comprobarId(int id) throws FileNotFoundException {
-		File f1 = new File("D:\\\\unaif\\\\Documents\\\\Universidad\\\\3.2\\\\IW\\\\Trabajo\\\\Trabajo\\\\IW_Bien\\\\WorkSpace\\\\Trabajo IW\\\\WebContent\\\\Ficheros\\\\Prestamos.csv");
+		File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv");
 		boolean comprueba = false;
 		if(f1.exists()) {
                 Scanner fich;
@@ -110,32 +121,32 @@ public class PrestamoDAO {
 	}
 	
 	public static int GenerarId() throws FileNotFoundException {
-		File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv");
+		File f1 = new File("C:/Users/javy2/Desktop/Prestamos.csv");
 		int linea=0;
 		if(f1.exists()) {
-                	Scanner fich;
-			fich = new Scanner(f1);
+                Scanner fich;
+				fich = new Scanner(f1);
 				
-			while(fich.hasNextLine()) {
-				fich.nextLine();
-			    	linea += 1;
-			}
+                while(fich.hasNextLine()) {
+                	fich.nextLine();
+                    linea += 1;
+                }
                 fich.close();
-        	}
+        }
 		return linea+1;
 	}
 	
-	public static void anadirPrestamos(int id_libro, String titulo, String autor, String usuario, int fecha_inicio_prestamo) throws FileNotFoundException {
+	public static void anadirPrestamos(int id_libro, String titulo, String autor, String usuario, int carnet, int fecha_inicio_prestamo) throws FileNotFoundException {
 		try{
-		    int id_prestamo=GenerarId();
-		    new PrestamoDAO(id_prestamo, id_libro, titulo, autor, usuario, fecha_inicio_prestamo);
-		    Writer output = new BufferedWriter(new FileWriter("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv",true));
-		    output.append("\n" + String.valueOf(id_prestamo) + "," + String.valueOf(id_libro) + "," + titulo + "," + autor + "," + usuario + "," + String.valueOf(fecha_inicio_prestamo) + "," + String.valueOf(fecha_inicio_prestamo+30));
-
-		    output.close();
-		    System.out.println("Prestamo anadido correctamente");
+			int id_prestamo=GenerarId();
+            new PrestamoDAO(id_prestamo, id_libro, titulo, autor, usuario, carnet, fecha_inicio_prestamo);
+            Writer output = new BufferedWriter(new FileWriter("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv",true));
+            output.append("\n" + String.valueOf(id_prestamo) + "," + String.valueOf(id_libro) + "," + titulo + "," + autor + "," + usuario + "," + String.valueOf(carnet) + "," + String.valueOf(fecha_inicio_prestamo) + "," + String.valueOf(fecha_inicio_prestamo+30));
+                        
+            output.close();
+            System.out.println("Prestamo anadido correctamente");
 			
-        	}catch(Exception e){System.out.println("Error: " + e);}
+        }catch(Exception e){System.out.println("Error: " + e);}
 	}
     
     public static void eliminarPrestamo(int id) throws FileNotFoundException {
@@ -149,7 +160,7 @@ public class PrestamoDAO {
 	        BufferedWriter bw = null;
 	    	ArrayList<String> lineasAcopiar = new ArrayList<String>();
 	    	try{
-	    		fr = new FileReader("D:\\\\unaif\\\\Documents\\\\Universidad\\\\3.2\\\\IW\\\\Trabajo\\\\Trabajo\\\\IW_Bien\\\\WorkSpace\\\\Trabajo IW\\\\WebContent\\\\Ficheros\\\\Prestamos.csv");
+	    		fr = new FileReader("D:\\unaif\\Documents\\Universidad\\3.2\\\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv");
 	            br = new BufferedReader(fr);
 	            while(br.ready()){
 	                linea = br.readLine();
@@ -159,7 +170,7 @@ public class PrestamoDAO {
 	            }
 	            br.close();
 	            //RECORREMOS EL VECTOR Y GUARDAMOS LA LINEAS EN EL FICHERO
-	            fw = new FileWriter("D:\\\\unaif\\\\Documents\\\\Universidad\\\\3.2\\\\IW\\\\Trabajo\\\\Trabajo\\\\IW_Bien\\\\WorkSpace\\\\Trabajo IW\\\\WebContent\\\\Ficheros\\\\Prestamos.csv");
+	            fw = new FileWriter("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv");
 	            bw = new BufferedWriter(fw);
 	            for(int l=0;l<lineasAcopiar.size();l++){
 	                linea = (String)lineasAcopiar.get(l);
@@ -175,7 +186,7 @@ public class PrestamoDAO {
     
     public boolean load_prestamo_aleatorio(int random) {
 
-		File f1 = new File("D:\\\\unaif\\\\Documents\\\\Universidad\\\\3.2\\\\IW\\\\Trabajo\\\\Trabajo\\\\IW_Bien\\\\WorkSpace\\\\Trabajo IW\\\\WebContent\\\\Ficheros\\\\Prestamos.csv");
+		File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv");
 		System.out.println(random);
 		if(f1.exists()) {
 			  Scanner fich = null;
@@ -192,8 +203,9 @@ public class PrestamoDAO {
 						  this.setTitulo(linea[2]);
 						  this.setAutor(linea[3]);
 						  this.setUsuario(linea[4]);
-						  this.setFecha_inicio_prestamo(Integer.parseInt(linea[5]));
-						  this.setFecha_final_prestamo(Integer.parseInt(linea[6]));
+						  this.setCarnet(Integer.parseInt(linea[5]));
+						  this.setFecha_inicio_prestamo(Integer.parseInt(linea[6]));
+						  this.setFecha_final_prestamo(Integer.parseInt(linea[7]));
 						  return true;
 					  }
 					 }
@@ -206,8 +218,8 @@ public class PrestamoDAO {
 		  return false;
 	}
     
-    public boolean load_prestamo(int prestamo) {
-		File f1 = new File("D:\\\\unaif\\\\Documents\\\\Universidad\\\\3.2\\\\IW\\\\Trabajo\\\\Trabajo\\\\IW_Bien\\\\WorkSpace\\\\Trabajo IW\\\\WebContent\\\\Ficheros\\\\Prestamos.csv");
+    public boolean load_prestamo(String prestamo) {
+		File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv");
 		if(f1.exists()) {
 		  Scanner fich = null;
 		  try {
@@ -216,14 +228,15 @@ public class PrestamoDAO {
 
 			  while(fich.hasNext()) {
 				  linea = fich.nextLine().split(",");
-				  if(prestamo == Integer.parseInt(linea[0])) {
+				  if(prestamo.equals(linea[0])) {
 					  this.setId_prestamo(Integer.parseInt(linea[0]));
 					  this.setId_libro(Integer.parseInt(linea[1]));
 					  this.setTitulo(linea[2]);
 					  this.setAutor(linea[3]);
 					  this.setUsuario(linea[4]);
-					  this.setFecha_inicio_prestamo(Integer.parseInt(linea[5]));
-					  this.setFecha_final_prestamo(Integer.parseInt(linea[6]));
+					  this.setCarnet(Integer.parseInt(linea[5]));
+					  this.setFecha_inicio_prestamo(Integer.parseInt(linea[6]));
+					  this.setFecha_final_prestamo(Integer.parseInt(linea[7]));
 					  return true;
 				  }
 				 }
