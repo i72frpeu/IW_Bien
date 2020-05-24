@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <jsp:useBean id="Usuario" class="trabajo.IW.UsuarioBean" scope="session" />
+<%@page import="trabajo.DAO.PrestamoDAO" %>
+<jsp:useBean id="listaPrestamos" class="trabajo.IW.ListaPrestamosBean" scope="session" />
 <%
 if(Usuario.getTipo() == 1){
 %>
@@ -44,14 +46,14 @@ if(Usuario.getTipo() == 1){
 
   <div class="div_home">
     <table class="dos">
-    <% for (int i = 0; i < 8; i++){ %>
+    <% for (int i = 0; i < listaPrestamos.getsize(); i++){ %>
         <tr>
           <td>
-              <table class="uno">
+               <table class="uno">
                   <tr>
                     <td class="td_user_img"><a href=""><img src="../img/libro.png" alt="IMG_BOOK" class="img_user_2"></a></td>
-                    <td class="td_user_des">Usuario</td>
-                    <td class="tdlibro"> Fecha Fin </td>
+                    <td class="td_user_des"> <%= listaPrestamos.getPrestamo(i).getUsuario() %> </td>
+                    <td class="tdlibro"> <%= listaPrestamos.getPrestamo(i).getFecha_final_prestamo() %> </td>
                     <td> <a href="Prestamo.jsp"><button name="foro" class="boton_user">Ver Prestamo</button></a><td>
                   </tr>
                 </table>
