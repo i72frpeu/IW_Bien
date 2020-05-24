@@ -37,7 +37,7 @@ if(Usuario.getTipo() == 1){
 			<td class = "tdlibro" rowspan = 4> Imagen </td> <td class = "tdlibro"> <%= prestamoactivo.getId_prestamo() %> </td> <td class = "tdlibro" colspan = 2> <%= prestamoactivo.getTitulo() %> </td>
 		</tr>
 		<tr>
-			<td class = "tdlibro" colspan = 2> <%= prestamoactivo.getUsuario() %> </td> <td class = "tdlibro"> <%= Usuario.obtenerCarnet(prestamoactivo.getUsuario()) %> </td>
+			<td class = "tdlibro" colspan = 2> <%= prestamoactivo.getUsuario() %> </td> <td class = "tdlibro"> <%= prestamoactivo.getCarnet() %> </td>
 		</tr>
 		<tr>
 			<td class = "tdlibro"> <%= prestamoactivo.getFecha_inicio_prestamo() %> </td> <td class = "tdlibro"> <%= prestamoactivo.getFecha_final_prestamo() %> </td> <td class = "tdlibro"> <%= prestamoactivo.getFecha_final_prestamo()-prestamoactivo.getFecha_inicio_prestamo() %> </td>
