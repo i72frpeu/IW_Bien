@@ -16,19 +16,22 @@
   <div class="registro">
     <form action="Prestamo (Admin).jsp" method="post" target="_self">
       
-      <strong>Nombre</strong><br>
-      <input type="text" name="nombre" required><br><br>
-      
-      <strong>Apellidos</strong><br>
-      <input type="text" name="apellidos" required><br><br>
-      
       <strong>ID libro</strong><br>
       <input type="text" name="id" required><br><br>
       
       <strong>Titulo</strong><br>
       <input type="text" name="Título" required><br><br>
       
-      <strong>Fecha Inico</strong><br>
+      <strong>Autor</strong><br>
+      <input type="text" name="Autor" required><br><br>
+      
+      <strong>Usuario</strong><br>
+      <input type="text" name="usuario" required><br><br>
+      
+      <strong>Carnet</strong><br>
+      <input type="text" name="carnet" required><br><br>
+      
+      <strong>Fecha Inicio</strong><br>
       <input type="text" name="fecha" required><br><br>
            
       <input type="submit" value="Confirmar Prestamo"> 
