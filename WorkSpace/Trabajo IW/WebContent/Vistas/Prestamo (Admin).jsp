@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <jsp:useBean id="Usuario" class="trabajo.IW.UsuarioBean" scope="session" />
+<jsp:useBean id="prestamoactivo" class="trabajo.IW.PrestamoBean" scope="session" />
 <%
 if(Usuario.getTipo() == 1){
 %>
@@ -34,13 +35,13 @@ if(Usuario.getTipo() == 1){
   <div class="div_home">
   		<table class = "tablalibro">
 		<tr>
-			<td class = "tdlibro" rowspan = 4> Imagen </td> <td class = "tdlibro"> ID </td> <td class = "tdlibro" colspan = 2> Titulo </td>
+			<td class = "tdlibro" rowspan = 4> Imagen </td> <td class = "tdlibro"> <%= prestamoactivo.getId_prestamo() %> </td> <td class = "tdlibro" colspan = 2> <%= prestamoactivo.getTitulo() %> </td>
 		</tr>
 		<tr>
-			<td class = "tdlibro" colspan = 2> Usuario </td> <td class = "tdlibro"> Carnet</td>
+			<td class = "tdlibro" colspan = 2> <%= prestamoactivo.getUsuario() %> </td> <td class = "tdlibro"> <%= prestamoactivo.getCarnet() %> </td>
 		</tr>
 		<tr>
-			<td class = "tdlibro"> Fecha Inicio </td> <td class = "tdlibro"> Fecha Final </td> <td class = "tdlibro"> Retraso </td>
+			<td class = "tdlibro"> <%= prestamoactivo.getFecha_inicio_prestamo() %> </td> <td class = "tdlibro"> <%= prestamoactivo.getFecha_final_prestamo() %> </td> <td class = "tdlibro"> Retraso </td>
 		</tr>
 		<tr>
 			<td class = "tdlibro" colspan = 3> <a href = "Cancelar Prestamo.jsp"><button>Terminar Prestamo</button></a> </td>
