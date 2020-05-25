@@ -121,7 +121,7 @@ public class PrestamoDAO {
 	}
 	
 	public static int GenerarId() throws FileNotFoundException {
-		File f1 = new File("C:/Users/javy2/Desktop/Prestamos.csv");
+		File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv");
 		int linea=0;
 		if(f1.exists()) {
                 Scanner fich;
