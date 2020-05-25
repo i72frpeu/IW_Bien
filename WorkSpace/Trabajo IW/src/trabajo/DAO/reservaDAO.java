@@ -166,25 +166,22 @@ public class ReservaDAO{
 		    return false;
 		  }
 		
-		public int comprobarId() throws FileNotFoundException{
-		    File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Reservas.csv");
-			  if(f1.exists()) {
-				  Scanner fich = null;
-				  int cont = 0;
-				  try {
-					  fich = new Scanner(f1);
-					  while(fich.hasNext()) {
-						  	fich.nextLine();
-						  	cont++;
-					  }
-				  }catch(IOException e) {
-						System.out.println(e);
-				  }finally{
-						fich.close();
-				  }
-				 return cont+1; 
-		  }
-			return -1;
+		public static boolean comprobarId(int id) throws FileNotFoundException{
+			File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv");
+			boolean comprueba = false;
+			if(f1.exists()) {
+	                Scanner fich;
+					fich = new Scanner(f1);
+					
+	                while(fich.hasNextLine()) {
+	                        String[] linea = fich.nextLine().split(",");
+	                        if(id == Integer.parseInt(linea[0])){
+	                        	comprueba = true;
+	                        }
+	                    }
+	                fich.close();
+	                }
+			return comprueba;
 		}
 
 
@@ -208,7 +205,7 @@ public class ReservaDAO{
                           lineasAcopiar.add(linea);
                                           }else if(id==Integer.parseInt(lineaComas[0])){
                                               lineaComas[0] = lineaComas[0] + ",1";
-                                              lineasAcopiar.add(linea);
+
                                           }
                     }
                     br.close();
