@@ -1,11 +1,14 @@
 package trabajo.DAO;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ReservaDAO{
@@ -185,38 +188,42 @@ public class ReservaDAO{
 		}
 
 
-		  /*public static void cancelarReserva(int id) throws FileNotFoundException{
-		      if(!comprobarId(id)) {
-		        System.out.println("La Reserva con id " + id + " no se encuentra");
-		      }else {
-		          String linea="";
-		        FileReader fr = null;
-		        BufferedReader br = null;
-		          FileWriter fw = null;
-		          BufferedWriter bw = null;
-		          List lineasAcopiar = new ArrayList<>();
-		        try{
-		          fr = new FileReader("C:/User/reservas.csv");
-		              br = new BufferedReader(fr);
-		              while(br.ready()){
-		                  linea = br.readLine();
-		                  String[] lineaComas = linea.split(",");
-		                  if(id!=Integer.parseInt(lineaComas[0]))
-		                    lineasAcopiar.add(linea);
-		              }
-		              br.close();
-		              //RECORREMOS EL VECTOR Y GUARDAMOS LA LINEAS EN EL FICHERO
-		              fw = new FileWriter("C:/User/reservas.csv");
-		              bw = new BufferedWriter(fw);
-		              for(int l=0;l<lineasAcopiar.size();l++){
-		                  linea = (String)lineasAcopiar.get(l);
-		                  bw.write(linea);
-		                  bw.newLine();
-		              }
-		              bw.close();
-		              System.out.println("La linea con id " + id + " ha sido borrada");
-		  
-		          }catch(Exception e){System.out.println("Error: " + e);}
-		      }
-		    }    */
+		public static void cancelarReserva(int id) throws FileNotFoundException{
+            if(!comprobarId(id)) {
+              System.out.println("La Reserva con id " + id + " no se encuentra");
+            }else {
+                String linea="";
+              FileReader fr = null;
+              BufferedReader br = null;
+                FileWriter fw = null;
+                BufferedWriter bw = null;
+                ArrayList<String> lineasAcopiar = new ArrayList<>();
+              try{
+                fr = new FileReader("C:/User/reservas.csv");
+                    br = new BufferedReader(fr);
+                    while(br.ready()){
+                        linea = br.readLine();
+                        String[] lineaComas = linea.split(",");
+                        if(id!=Integer.parseInt(lineaComas[0])){
+                          lineasAcopiar.add(linea);
+                                          }else if(id==Integer.parseInt(lineaComas[0])){
+                                              lineaComas[0] = lineaComas[0] + ",1";
+                                              lineasAcopiar.add(linea);
+                                          }
+                    }
+                    br.close();
+                    //RECORREMOS EL VECTOR Y GUARDAMOS LA LINEAS EN EL FICHERO
+                    fw = new FileWriter("C:/User/reservas.csv");
+                    bw = new BufferedWriter(fw);
+                    for(int l=0;l<lineasAcopiar.size();l++){
+                        linea = (String)lineasAcopiar.get(l);
+                        bw.write(linea);
+                        bw.newLine();
+                    }
+                    bw.close();
+                    System.out.println("La linea con id " + id + " ha sido borrada");
+
+                }catch(Exception e){System.out.println("Error: " + e);}
+            }
+          }
 		}
