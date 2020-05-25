@@ -165,8 +165,11 @@ public class PrestamoDAO {
 	            while(br.ready()){
 	                linea = br.readLine();
 	                String[] lineaComas = linea.split(",");
-	                if(id!=Integer.parseInt(lineaComas[0]))
+	                if(id!=Integer.parseInt(lineaComas[0])) {
 	                	lineasAcopiar.add(linea);
+		        }else if(id==Integer.parseInt(lineaComas[0])){
+	                    lineasAcopiar.add(linea + ",1");
+	                }
 	            }
 	            br.close();
 	            //RECORREMOS EL VECTOR Y GUARDAMOS LA LINEAS EN EL FICHERO
