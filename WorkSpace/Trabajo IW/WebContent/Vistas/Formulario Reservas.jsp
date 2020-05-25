@@ -19,7 +19,7 @@
 
   <!--NOMBRE Y APELLIDOS-->
   <div class="registro">
-    <form action="../Controlador/Reserva.jsp" method="post" target="_self">
+    <form action="../Controlador/Realizar Reserva.jsp" method="post" target="_self">
       <strong>Titulo</strong></td><br>
       <input type="text" name="titulo" value="<%= libroactivo.getTitulo() %>" required><br><br>
       

@@ -10,15 +10,17 @@
 	if(Usuario.iniciarSesion(request.getParameter("email"), request.getParameter("contr")) == true){
 		
 		listaLibros.loadLibros();
-		listaReservas.loadReserva();
 		
 		if(Usuario.getTipo() == 1){
+			listaReservas.loadReserva(Usuario.getUsuario());
 			response.sendRedirect("../Home (Libros).jsp");
 		}else{
 			if(Usuario.getTipo() == 2){
+				listaReservas.loadReserva(Usuario.getUsuario());
 				response.sendRedirect("../Home (Profesor).jsp");
 		}else{
 			if(Usuario.getTipo() == 3){
+				listaReservas.loadReserva();
 				response.sendRedirect("../Home (Admin).jsp");
 			}
 		}

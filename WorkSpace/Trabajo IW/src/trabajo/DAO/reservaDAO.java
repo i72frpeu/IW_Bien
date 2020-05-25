@@ -92,8 +92,9 @@ public class ReservaDAO{
 		  return false;
 		}
 		
-		public boolean load_reserva(String usuario) {
+		public boolean load_reserva(String usuario, int id) {
 			File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Reservas.csv");
+			int cont = id;
 			if(f1.exists()) {
 			  Scanner fich = null;
 			  try {
@@ -102,15 +103,18 @@ public class ReservaDAO{
 
 				  while(fich.hasNext()) {
 					  linea = fich.nextLine().split(",");
-					  String user = linea[2];
-					  if(user.equals(usuario)) {
-						  this.setIdReserva(Integer.parseInt(linea[0]));
-						  this.setTitulo(linea[1]);
-						  this.setUsuario(linea[2]);
-						  this.setCarnet_universidad(linea[3]);
-						  this.setfecha_inicio_Reserva(Integer.parseInt(linea[4]));
-						  this.setfecha_final_Reserva(Integer.parseInt(linea[5]));
-						  return true;
+						  String user = linea[2];
+						  if(user.equals(usuario)) {
+							  cont--;
+							  if(cont == 0) {
+							  this.setIdReserva(Integer.parseInt(linea[0]));
+							  this.setTitulo(linea[1]);
+							  this.setUsuario(linea[2]);
+							  this.setCarnet_universidad(linea[3]);
+							  this.setfecha_inicio_Reserva(Integer.parseInt(linea[4]));
+							  this.setfecha_final_Reserva(Integer.parseInt(linea[5]));
+							  return true;
+					  }
 					  }
 					 }
 			  }catch(IOException e) {
@@ -223,4 +227,25 @@ public class ReservaDAO{
                 }catch(Exception e){System.out.println("Error: " + e);}
             }
           }
+		
+		public int numeroReservas() {
+			  File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Reservas.csv");
+			  if(f1.exists()) {
+				  Scanner fich = null;
+				  int cont = 0;
+				  try {
+					  fich = new Scanner(f1);
+					  while(fich.hasNext()) {
+						  	fich.nextLine();
+						  	cont++;
+					  }
+				  }catch(IOException e) {
+						System.out.println(e);
+				  }finally{
+						fich.close();
+				  }
+				 return cont+1; 
+		  }
+			return -1;
 		}
+}

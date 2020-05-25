@@ -4,32 +4,22 @@
 <jsp:useBean id="listaReservas" class="trabajo.IW.ListaReservasBean" scope="session" />
 <jsp:useBean id="reservaactiva" class="trabajo.IW.ReservaBean" scope="session" />
 <%
-	ReservaDAO nuevaReserva = new ReservaDAO();
 
-	int id = nuevaReserva.comprobarId();
-	
-	nuevaReserva.guardarReserva(id, request.getParameter("titulo"), request.getParameter("usuario"), request.getParameter("carnet"), Integer.parseInt(request.getParameter("Fecha")));
-	
-	nuevaReserva.setIdReserva(id);
-	nuevaReserva.setTitulo(request.getParameter("titulo"));
-	nuevaReserva.setUsuario(request.getParameter("usuario"));
-	nuevaReserva.setCarnet_universidad(request.getParameter("carnet"));
-	nuevaReserva.setfecha_inicio_Reserva(Integer.parseInt(request.getParameter("Fecha")));
-	nuevaReserva.setfecha_final_Reserva(30 + Integer.parseInt(request.getParameter("Fecha")));
-	
-	listaReservas.addReserva(nuevaReserva);
+
+	ReservaDAO x = new ReservaDAO();
 	
 	String libro = request.getParameter("titulo");
+	String user = request.getParameter("usuario");
 	
-	if(nuevaReserva.getTitulo().equals(libro)){
-		reservaactiva.setTitulo(nuevaReserva.getTitulo());
-		reservaactiva.setIdReserva(nuevaReserva.getIdReserva());
-		reservaactiva.setUsuario(nuevaReserva.getUsuario());
-		reservaactiva.setCarnet_universidad(nuevaReserva.getCarnet_universidad());
-		reservaactiva.setfecha_inicio_Reserva(nuevaReserva.getFecha_inicio_Reserva());
-		reservaactiva.setfecha_final_Reserva(nuevaReserva.getFecha_final_Reserva());
+	if(x.load_reserva(user, libro) == true){
+		reservaactiva.setTitulo(x.getTitulo());
+		reservaactiva.setIdReserva(x.getIdReserva());
+		reservaactiva.setUsuario(x.getUsuario());
+		reservaactiva.setCarnet_universidad(x.getCarnet_universidad());
+		reservaactiva.setfecha_inicio_Reserva(x.getFecha_inicio_Reserva());
+		reservaactiva.setfecha_final_Reserva(x.getFecha_final_Reserva());
 		response.sendRedirect("../Vistas/Reserva.jsp");
 	}
 
-	
+
 %>

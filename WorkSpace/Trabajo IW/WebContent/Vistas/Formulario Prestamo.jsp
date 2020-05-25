@@ -1,35 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<jsp:useBean id="Usuario" class="trabajo.IW.UsuarioBean" scope="session" />
+<jsp:useBean id="libroactivo" class="trabajo.IW.LibroBean" scope="session" />
+
 <!DOCTYPE html>
 <html>
 
 <head>
 <meta charset="ISO-8859-1">
-  <title>Guardar Libro</title>
+  <title>Formulario Prestamo</title>
   <link rel="stylesheet" href="../CSS/wf2.1.css">
   <script src="p2.js"></script>
 </head>
 
 <body>
   <!--Mensaje de bienvenida-->
-  <h2 class="title_wf2-1"><strong>Pedir Expansion</strong></h2>
+  <h2 class="title_wf2-1"><strong>Realizar Prestamo</strong></h2>
 
   <!--NOMBRE Y APELLIDOS-->
   <div class="registro">
-    <form action="Prestamo (Admin).jsp" method="post" target="_self">
+    <form action="../Controlador/Realizar Prestamo.jsp" method="post" target="_self">
       
       <strong>ID libro</strong><br>
-      <input type="text" name="id" required><br><br>
+      <input type="text" name="id" value="<%= libroactivo.getId_libro() %>" required><br><br>
       
       <strong>Titulo</strong><br>
-      <input type="text" name="Título" required><br><br>
+      <input type="text" name="Título" value="<%= libroactivo.getTitulo() %>" required><br><br>
       
       <strong>Autor</strong><br>
-      <input type="text" name="Autor" required><br><br>
+      <input type="text" name="Autor" value="<%= libroactivo.getAutor() %>" required><br><br>
       
       <strong>Usuario</strong><br>
-      <input type="text" name="usuario" required><br><br>
+      <input type="text" name="usuario" value="<%= Usuario.getUsuario() %>" required><br><br>
       
       <strong>Carnet</strong><br>
-      <input type="text" name="carnet" required><br><br>
+      <input type="text" name="carnet" value="<%= Usuario.getCarnet() %>" required><br><br>
       
       <strong>Fecha Inicio</strong><br>
       <input type="text" name="fecha" required><br><br>

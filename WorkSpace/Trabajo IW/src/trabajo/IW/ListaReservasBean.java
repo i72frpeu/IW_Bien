@@ -32,6 +32,20 @@ public class ListaReservasBean {
 			}
 		}
 	}
+	
+	public void loadReserva(String User) {
+		if(listaReservas.size() != 0) {
+
+		}else {
+			for(int i = 0; i < 8; i++) {
+				ReservaDAO aux = new ReservaDAO();
+				aux.load_reserva(User, i+1);
+				if(aux.getTitulo() != null) {
+					listaReservas.add(aux);
+				}
+			}
+		}
+	}
 
 	public void addReserva(ReservaDAO aux) {
 		listaReservas.add(aux);

@@ -53,7 +53,7 @@ if(Usuario.getTipo() == 1){
                     <td class="tdlibro"> <%= listaReservas.getReserva(i).getTitulo() %></td>
                     <td class="tdlibro"> <%= listaReservas.getReserva(i).getUsuario() %> </td>
                     <td class="tdlibro"> <%= listaReservas.getReserva(i).getFecha_final_Reserva() %> </td>
-                    <td><form action = ../Controlador/Reserva2.jsp>
+                    <td><form action = ../Controlador/Reserva.jsp>
                     	<input type="hidden" name="titulo" value=<%= listaReservas.getReserva(i).getTitulo() %>>
     					<input type="hidden" name="usuario" value=<%= listaReservas.getReserva(i).getUsuario() %>>
     					<input type="submit" value="Reserva">
