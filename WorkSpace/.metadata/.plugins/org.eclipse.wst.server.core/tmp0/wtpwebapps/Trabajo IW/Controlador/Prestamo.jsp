@@ -2,25 +2,27 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <jsp:useBean id="Usuario" class="trabajo.IW.UsuarioBean" scope="session" />
 <jsp:useBean id="prestamoactivo" class="trabajo.IW.PrestamoBean" scope="session" />
-<jsp:useBean id="listaPrestamo" class="trabajo.IW.ListaPrestamosBean" scope="session" />
 <%
 
 	PrestamoDAO x = new PrestamoDAO();
+		
+	String titulo = request.getParameter("titulo");
+	String usuario = request.getParameter("usuario");
 	
-	System.out.println(request.getParameter("id_prestamo"));
-	
-	String prestamo = request.getParameter("id_prestamo");
-	
-	if(x.load_prestamo(prestamo) == true){
+	if(x.load_prestamo(titulo, usuario) == true){
 		prestamoactivo.setId_prestamo(x.getId_prestamo());
-		prestamoactivo.setId_libro(x.getId_libro());
+		prestamoactivo.setIDLibroPrestamo();
 		prestamoactivo.setTitulo(x.getTitulo());
 		prestamoactivo.setAutor(x.getAutor());
 		prestamoactivo.setUsuario(x.getUsuario());
 		prestamoactivo.setCarnet(x.getCarnet());
 		prestamoactivo.setFecha_inicio_prestamo(x.getFecha_inicio_prestamo());
 		prestamoactivo.setFecha_final_prestamo(x.getFecha_inicio_prestamo()+30);
-		response.sendRedirect("../Vistas/Prestamo.jsp");
+		if(Usuario.getTipo() == 3){
+			response.sendRedirect("../Vistas/Prestamo (Admin).jsp");
+		}else{
+			response.sendRedirect("../Vistas/Prestamo.jsp");
+		}
 	}
 
 

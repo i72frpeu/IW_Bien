@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <jsp:useBean id="Usuario" class="trabajo.IW.UsuarioBean" scope="session" />
-<jsp:useBean id="prestamoactivo" class="trabajo.IW.PrestamoBean" scope="session" />
+<jsp:useBean id="prestamoactivo" class="trabajo.IW.PrestamoBean" scope="session"/>
 <%
 if(Usuario.getTipo() == 1){
 %>
@@ -34,16 +34,16 @@ if(Usuario.getTipo() == 1){
   <div class="div_home">
   		<table class = "tablalibro">
 		<tr>
-			<td class = "tdlibro" rowspan = 4> Imagen </td> <td class = "tdlibro"> <%= prestamoactivo.getId_prestamo() %> </td> <td class = "tdlibro" colspan = 2> <%= prestamoactivo.getTitulo() %> </td>
+			 <td class = "tdlibro"> ID: <%= prestamoactivo.getId_prestamo() %> </td> <td class = "tdlibro" colspan = 2> <%= prestamoactivo.getTitulo() %> </td>
 		</tr>
 		<tr>
-			<td class = "tdlibro" colspan = 2> <%= prestamoactivo.getUsuario() %> </td> <td class = "tdlibro"> <%= prestamoactivo.getCarnet() %> </td>
+			<td class = "tdlibro" colspan = 2> Usuario: <%= prestamoactivo.getUsuario() %> </td> <td class = "tdlibro"> Carnet: <%= prestamoactivo.getCarnet() %> </td>
 		</tr>
 		<tr>
-			<td class = "tdlibro"> <%= prestamoactivo.getFecha_inicio_prestamo() %> </td> <td class = "tdlibro"> <%= prestamoactivo.getFecha_final_prestamo() %> </td> <td class = "tdlibro"> <%= prestamoactivo.getFecha_final_prestamo()-prestamoactivo.getFecha_inicio_prestamo() %> </td>
+			<td class = "tdlibro"> Fecha Inico: <%= prestamoactivo.getFecha_inicio_prestamo() %> </td> <td class = "tdlibro"> Fecha Fin: <%= prestamoactivo.getFecha_final_prestamo() %> </td> <td class = "tdlibro"> Retraso: Si o No </td>
 		</tr>
 		<tr>
-			<td class = "tdlibro" colspan = 3> <a href = "Reservas.jsp"><button>Pedir Expansion</button></a> </td>
+			<td class = "tdlibro" colspan = 2> <a href = "Reservas.jsp"><button>Pedir Expansion</button></a> </td>
 		</tr>
 	</table>
   </div>

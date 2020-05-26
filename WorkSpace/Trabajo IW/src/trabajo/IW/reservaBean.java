@@ -1,5 +1,6 @@
 package trabajo.IW;
 
+import trabajo.DAO.LibroDAO;
 
 public class ReservaBean{
 
@@ -28,6 +29,18 @@ public class ReservaBean{
     this.fecha_final_Reserva = this.fecha_inicio_Reserva + 30;
 	}
 
+  public int getIDLibroReserva() {
+	  LibroDAO aux = new LibroDAO();
+	  aux.load_libro(this.titulo);
+	  return aux.getId_libro();
+  }
+  
+  public String getAutorLibroReserva() {
+	  LibroDAO aux = new LibroDAO();
+	  aux.load_libro(this.titulo);
+	  return aux.getAutor();
+  }
+  
   public int getIdReserva(){
 		return idReserva;
 	}

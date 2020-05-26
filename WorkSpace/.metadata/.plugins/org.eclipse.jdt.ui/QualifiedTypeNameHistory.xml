@@ -5,4 +5,5 @@
 <fullyQualifiedTypeName name="java.io.BufferedWriter"/>
 <fullyQualifiedTypeName name="java.io.FileWriter"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="trabajo.DAO.LibroDAO"/>
 </qualifiedTypeNameHistroy>

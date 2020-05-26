@@ -24,16 +24,16 @@
       <input type="text" name="id" value="<%= libroactivo.getId_libro() %>" required><br><br>
       
       <strong>Titulo</strong><br>
-      <input type="text" name="Título" value="<%= libroactivo.getTitulo() %>" required><br><br>
+      <input type="text" name="libro" value="<%= libroactivo.getTitulo() %>" required><br><br>
       
       <strong>Autor</strong><br>
       <input type="text" name="Autor" value="<%= libroactivo.getAutor() %>" required><br><br>
       
       <strong>Usuario</strong><br>
-      <input type="text" name="usuario" value="<%= Usuario.getUsuario() %>" required><br><br>
+      <input type="text" name="usuario" required><br><br>
       
       <strong>Carnet</strong><br>
-      <input type="text" name="carnet" value="<%= Usuario.getCarnet() %>" required><br><br>
+      <input type="text" name="carnet" required><br><br>
       
       <strong>Fecha Inicio</strong><br>
       <input type="text" name="fecha" required><br><br>

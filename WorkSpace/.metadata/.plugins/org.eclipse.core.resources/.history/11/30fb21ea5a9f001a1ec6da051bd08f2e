@@ -1,0 +1,39 @@
+<%@page import="trabajo.DAO.PrestamoDAO"%>
+<%@page import="trabajo.DAO.LibroDAO"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<jsp:useBean id="Usuario" class="trabajo.IW.UsuarioBean" scope="session" />
+<jsp:useBean id="listaprestamos" class="trabajo.IW.ListaPrestamosBean" scope="session" />
+<jsp:useBean id="prestamoactivo" class="trabajo.IW.PrestamoBean" scope="session"/>
+<%
+	PrestamoDAO nuevoPrestamo = new PrestamoDAO();
+
+	int id = nuevoPrestamo.GenerarId();
+	
+	nuevoPrestamo.anadirPrestamos(id, request.getParameter("Titulo"), request.getParameter("Autor"), request.getParameter("usuario"), request.getParameter("carnet"), request.getParameter("fecha"));
+		
+	nuevoPrestamo.setId_prestamo(id);
+	nuevoPrestamo.setTitulo(request.getParameter("Titulo"));
+	nuevoPrestamo.setAutor(request.getParameter("Autor"));
+	nuevoPrestamo.setUsuario(request.getParameter("usuario"));
+	nuevoPrestamo.setCarnet(request.getParameter("carnet"));
+	nuevoPrestamo.setFecha_inicio_prestamo(request.getParameter("fecha"));
+	nuevoPrestamo.setFecha_final_prestamo(request.getParameter("fecha"));
+	
+	listaprestamos.addPresatmo(nuevoPrestamo);
+	
+	String libro = request.getParameter("titulo");
+	
+	if(nuevoPrestamo.getTitulo().equals(libro)){
+		prestamoactivo.setTitulo(request.getParameter("Titulo"));
+		prestamoactivo.setIDLibroPrestamo();
+		prestamoactivo.setId_prestamo(id);
+		prestamoactivo.setAutor(request.getParameter("Autor"));
+		prestamoactivo.setUsuario(request.getParameter("usuario"));
+		prestamoactivo.setCarnet(request.getParameter("carnet"));
+		prestamoactivo.setFecha_inicio_prestamo(request.getParameter("fecha"));
+		prestamoactivo.setFecha_final_prestamo(request.getParameter("fecha"));
+		response.sendRedirect("../Vistas/Reserva.jsp");
+	}
+
+	
+%>

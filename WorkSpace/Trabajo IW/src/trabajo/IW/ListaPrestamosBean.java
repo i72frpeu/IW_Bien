@@ -33,5 +33,24 @@ public class ListaPrestamosBean {
 	public int getsize() {
 		return this.listaPrestamos.size();
 	}
+	
+	public void addPresatmo(PrestamoDAO aux) {
+		listaPrestamos.add(aux);
+	}
+	
+	public void loadPrestamo(String User) {
+		if(listaPrestamos.size() != 0) {
+
+		}else {
+			for(int i = 0; i < 8; i++) {
+				PrestamoDAO aux = new PrestamoDAO();
+				aux.load_Prestamo(User, i+1);
+				if(aux.getTitulo() != null) {
+					listaPrestamos.add(aux);
+				}
+			}
+		}
+	}
+
 
 }

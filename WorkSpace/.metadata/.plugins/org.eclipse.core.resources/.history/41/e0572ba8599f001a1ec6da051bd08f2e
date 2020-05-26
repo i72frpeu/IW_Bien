@@ -1,0 +1,36 @@
+<%@page import="trabajo.DAO.PrestamoDAO"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<jsp:useBean id="Usuario" class="trabajo.IW.UsuarioBean" scope="session" />
+<jsp:useBean id="listaprestamos" class="trabajo.IW.ListaPrestamosBean" scope="session" />
+<jsp:useBean id="prestamoactivo" class="trabajo.IW.PrestamoBean" scope="session"/>
+<%
+	PrestamoDAO nuevoPrestamo = new PrestamoDAO();
+
+	int id = nuevoPrestamo.GenerarId();
+	
+	nuevoPrestamo.anadirPrestamos(id, request.getParameter("Titulo"), request.getParameter("Autor"), request.getParameter("usuario"), request.getParameter("carnet"), request.getParameter("fecha"));
+		
+	nuevoPrestamo.setId_prestamo(id);
+	nuevoPrestamo.setTitulo(request.getParameter("Titulo"));
+	nuevoPrestamo.setAutor(request.getParameter("Autor"));
+	nuevoPrestamo.setUsuario(request.getParameter("usuario"));
+	nuevoPrestamo.setCarnet(request.getParameter("carnet"));
+	nuevoPrestamo.setFecha_inicio_prestamo(request.getParameter("fecha"));
+	nuevoPrestamo.setFecha_final_prestamo(request.getParameter("fecha"));
+	
+	listaprestamos.addPresatmo(nuevoPrestamo);
+	
+	String libro = request.getParameter("titulo");
+	
+	if(nuevoPrestamo.getTitulo().equals(libro)){
+		reservaactiva.setTitulo(nuevaReserva.getTitulo());
+		reservaactiva.setIdReserva(nuevaReserva.getIdReserva());
+		reservaactiva.setUsuario(nuevaReserva.getUsuario());
+		reservaactiva.setCarnet_universidad(nuevaReserva.getCarnet_universidad());
+		reservaactiva.setfecha_inicio_Reserva(nuevaReserva.getFecha_inicio_Reserva());
+		reservaactiva.setfecha_final_Reserva(nuevaReserva.getFecha_final_Reserva());
+		response.sendRedirect("../Vistas/Reserva.jsp");
+	}
+
+	
+%>

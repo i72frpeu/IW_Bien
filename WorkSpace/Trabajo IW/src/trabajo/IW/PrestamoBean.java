@@ -1,5 +1,6 @@
 package trabajo.IW;
 
+import trabajo.DAO.LibroDAO;
 
 public class PrestamoBean {
 	
@@ -8,7 +9,7 @@ public class PrestamoBean {
 	private String titulo;
 	private String autor;
 	private String usuario;
-	private int carnet;
+	private String carnet;
 	private int fecha_inicio_prestamo;
 	private int fecha_final_prestamo;
 	
@@ -18,12 +19,12 @@ public class PrestamoBean {
 	    this.titulo = null;
 	    this.autor = null;
 	    this.usuario = null;
-	    this.carnet = -1;
+	    this.carnet = null;
 	    this.fecha_inicio_prestamo = -1;
 	    this.fecha_final_prestamo = -1;
 	}
 	
-	public PrestamoBean(int id_prestamo, int id_libro, String titulo, String autor, String usuario, int carnet, int fecha_inicio_prestamo) {
+	public PrestamoBean(int id_prestamo, int id_libro, String titulo, String autor, String usuario, String carnet, int fecha_inicio_prestamo) {
 		this.id_prestamo = id_prestamo;
 		this.id_libro = id_libro;
 	    this.titulo = titulo;
@@ -46,9 +47,11 @@ public class PrestamoBean {
 		return id_libro;
 	}
 
-	public void setId_libro(int id_libro) {
-		this.id_libro = id_libro;
-	}
+	public void setIDLibroPrestamo() {
+		  LibroDAO aux = new LibroDAO();
+		  aux.load_libro(this.titulo);
+		  this.id_libro = aux.getId_libro();
+	  }
 
 	public String getTitulo() {
 		return titulo;
@@ -74,11 +77,11 @@ public class PrestamoBean {
 		this.usuario = usuario;
 	}
 
-	public int getCarnet() {
+	public String getCarnet() {
 		return carnet;
 	}
 
-	public void setCarnet(int carnet) {
+	public void setCarnet(String carnet) {
 		this.carnet = carnet;
 	}
 

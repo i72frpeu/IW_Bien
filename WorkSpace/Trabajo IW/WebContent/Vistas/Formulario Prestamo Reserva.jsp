@@ -1,0 +1,45 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<jsp:useBean id="Usuario" class="trabajo.IW.UsuarioBean" scope="session" />
+<jsp:useBean id="reservaactiva" class="trabajo.IW.ReservaBean" scope="session" />
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="ISO-8859-1">
+  <title>Formulario Prestamo</title>
+  <link rel="stylesheet" href="../CSS/wf2.1.css">
+  <script src="p2.js"></script>
+</head>
+
+<body>
+  <!--Mensaje de bienvenida-->
+  <h2 class="title_wf2-1"><strong>Realizar Prestamo</strong></h2>
+
+  <!--NOMBRE Y APELLIDOS-->
+  <div class="registro">
+    <form action="../Controlador/Realizar Prestamo.jsp" method="post" target="_self">
+      
+      <strong>ID libro</strong><br>
+      <input type="text" name="id" value="<%= reservaactiva.getIDLibroReserva() %>" required><br><br>
+      
+      <strong>Titulo</strong><br>
+      <input type="text" name="libro" value="<%= reservaactiva.getTitulo() %>" required><br><br>
+      
+      <strong>Autor</strong><br>
+      <input type="text" name="Autor" value="<%= reservaactiva.getAutorLibroReserva() %>" required><br><br>
+      
+      <strong>Usuario</strong><br>
+      <input type="text" name="usuario" value="<%= reservaactiva.getUsuario() %>" required><br><br>
+      
+      <strong>Carnet</strong><br>
+      <input type="text" name="carnet" value="<%= reservaactiva.getCarnet_universidad() %>" required><br><br>
+      
+      <strong>Fecha Inicio</strong><br>
+      <input type="text" name="fecha" required><br><br>
+           
+      <input type="submit" value="Confirmar Prestamo"> 
+    </form>
+  </div>
+</body>
+</html>

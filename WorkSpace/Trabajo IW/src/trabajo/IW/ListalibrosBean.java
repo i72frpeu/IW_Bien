@@ -2,7 +2,8 @@ package trabajo.IW;
 
 import java.util.ArrayList;
 import java.util.List;
-import trabajo.DAO.*;
+
+import trabajo.DAO.LibroDAO;
 
 public class ListalibrosBean {
 	private List<LibroDAO> listaLibros;

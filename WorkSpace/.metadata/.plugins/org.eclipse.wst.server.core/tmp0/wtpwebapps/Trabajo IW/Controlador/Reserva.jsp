@@ -18,7 +18,12 @@
 		reservaactiva.setCarnet_universidad(x.getCarnet_universidad());
 		reservaactiva.setfecha_inicio_Reserva(x.getFecha_inicio_Reserva());
 		reservaactiva.setfecha_final_Reserva(x.getFecha_final_Reserva());
-		response.sendRedirect("../Vistas/Reserva.jsp");
+		if(Usuario.getTipo() == 3){
+			response.sendRedirect("../Vistas/Reserva (Admin).jsp");
+		}else{
+			response.sendRedirect("../Vistas/Reserva.jsp");
+		}
+		
 	}
 
 

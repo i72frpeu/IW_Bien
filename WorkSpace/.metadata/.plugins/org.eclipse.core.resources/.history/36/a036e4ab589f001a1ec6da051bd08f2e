@@ -1,0 +1,37 @@
+package trabajo.IW;
+import java.util.ArrayList;
+import java.util.List;
+import trabajo.DAO.*;
+
+public class ListaPrestamosBean {
+	private List<PrestamoDAO> listaPrestamos;
+	
+	public ListaPrestamosBean() {
+		this.listaPrestamos = new ArrayList<PrestamoDAO>();
+	}
+
+	public List<PrestamoDAO> getListaPrestamos() {
+		return listaPrestamos;
+	}
+
+	public void setListaLibros(List<PrestamoDAO> listaPrestamos) {
+		this.listaPrestamos = listaPrestamos;
+	}
+	
+	public void loadPrestamos() {
+		for(int i = 0; i < 8; i++) {
+			PrestamoDAO aux = new PrestamoDAO();
+			aux.load_prestamo_aleatorio(i+1);
+			listaPrestamos.add(aux);
+		}
+	}
+	
+	public PrestamoDAO getPrestamo(int i) {
+		return this.listaPrestamos.get(i);
+	}
+	
+	public int getsize() {
+		return this.listaPrestamos.size();
+	}
+
+}
