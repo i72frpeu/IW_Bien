@@ -1,0 +1,9 @@
+package trabajo.IW;
+
+public class DireccionBean {
+	String Direccion;
+	
+	public DireccionBean(String Dir) {
+		Direccion = Dir;
+	}
+}

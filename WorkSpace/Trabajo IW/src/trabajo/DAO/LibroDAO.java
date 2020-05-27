@@ -126,7 +126,7 @@ public class LibroDAO {
 	 */
 	public boolean load_libro_aleatorio(int random) {
 
-		File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Libros.csv");
+		File f1 = new File("Libros.csv");
 		if(f1.exists()) {
 			  Scanner fich = null;
 			  try {
@@ -162,7 +162,7 @@ public class LibroDAO {
 	 * @return True si se puede cargar el libro, False si no se puede
 	 */
 	public boolean load_libro(String Nombre) {
-		File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Libros.csv");
+		File f1 = new File("Libros.csv");
 		if(f1.exists()) {
 		  Scanner fich = null;
 		  try {
@@ -209,7 +209,7 @@ public class LibroDAO {
 	public boolean guardarLibro(int id, String titulo, String autor, String materia, String editorial, int paginas, int encuadernamiento, int reservado) throws IOException{
 
   	  String data = id + "," + titulo + "," + autor + "," + materia + "," + editorial + "," + paginas + "," + encuadernamiento + "," + reservado;
-  	  Writer output = new BufferedWriter(new FileWriter("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Libros.csv",true));
+  	  Writer output = new BufferedWriter(new FileWriter("Libros.csv",true));
   	  
   	  try{
 		  output.append(data + "\n");
@@ -228,7 +228,7 @@ public class LibroDAO {
 	 * @return Numero de libros
 	 */
 	public int numeroLibros() {
-		  File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Libros.csv");
+		  File f1 = new File("Libros.csv");
 		  if(f1.exists()) {
 			  Scanner fich = null;
 			  int cont = 0;

@@ -174,7 +174,7 @@ public class UsuarioBean {
    * @return True si se inicia sesion, false si no se inicia
    */
   public boolean iniciarSesion(String email, String password){
-	  File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Usuarios.csv");
+	  File f1 = new File("Usuarios.csv");
 	  if(f1.exists()) {
 		  Scanner fich = null;
 		  try {
@@ -220,7 +220,7 @@ public class UsuarioBean {
    * @throws IOException
    */
   public boolean registrarse(int id, int tipo, String nombre, String apellido1, String usuario, String password, String email, String carnet_universidad) throws IOException{
-	  Writer output = new BufferedWriter(new FileWriter("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Usuarios.csv",true));
+	  Writer output = new BufferedWriter(new FileWriter("Usuarios.csv",true));
     String data = id + "," + tipo + "," + nombre + "," + apellido1 + "," + usuario + "," + password + "," + email + "," + carnet_universidad;
     try{	 
   	   output.append(data + "\n");
@@ -239,7 +239,7 @@ public class UsuarioBean {
    * @return numero de usuarios en el sistema
    */
   public int numeroUsers() {
-	  File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Usuarios.csv");
+	  File f1 = new File("Usuarios.csv");
 	  if(f1.exists()) {
 		  Scanner fich = null;
 		  int cont = 0;

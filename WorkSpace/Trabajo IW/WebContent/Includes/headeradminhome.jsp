@@ -24,6 +24,7 @@
       <img src="img/profile-42914_960_720.png" alt="IMG_USER" class="img_user">
       <div class="options_user">
       	<h3><jsp:getProperty name="Usuario" property="usuario" /></h3>
+      	<a href="index.jsp"> Cerrar Sesion </a>
       </div>
     </div>
   </header>

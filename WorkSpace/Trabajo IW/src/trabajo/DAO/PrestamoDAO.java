@@ -211,7 +211,7 @@ public class PrestamoDAO {
 	 */
 	
 	public boolean comprobarId(int id) throws FileNotFoundException {
-		File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv");
+		File f1 = new File("Prestamos.csv");
 		boolean comprueba = false;
 		if(f1.exists()) {
                 Scanner fich;
@@ -234,7 +234,7 @@ public class PrestamoDAO {
 	 */
 	
 	public int GenerarId() throws FileNotFoundException {
-		File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv");
+		File f1 = new File("Prestamos.csv");
 		int linea=0;
 		if(f1.exists()) {
                 Scanner fich;
@@ -264,7 +264,7 @@ public class PrestamoDAO {
 		try{
 			int id_prestamo=GenerarId();
             new PrestamoDAO(id_prestamo, id_libro, titulo, autor, usuario, carnet, fecha_inicio_prestamo);
-            Writer output = new BufferedWriter(new FileWriter("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv",true));
+            Writer output = new BufferedWriter(new FileWriter("Prestamos.csv",true));
             output.append("\n" + String.valueOf(id_prestamo) + "," + String.valueOf(id_libro) + "," + titulo + "," + autor + "," + usuario + "," + carnet + "," + String.valueOf(fecha_inicio_prestamo) + "," + String.valueOf(fecha_inicio_prestamo+30));
                         
             output.close();
@@ -290,7 +290,7 @@ public class PrestamoDAO {
 	        BufferedWriter bw = null;
 	    	ArrayList<String> lineasAcopiar = new ArrayList<String>();
 	    	try{
-	    		fr = new FileReader("D:\\unaif\\Documents\\Universidad\\3.2\\\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv");
+	    		fr = new FileReader("Prestamos.csv");
 	            br = new BufferedReader(fr);
 	            while(br.ready()){
 	                linea = br.readLine();
@@ -303,7 +303,7 @@ public class PrestamoDAO {
 	            }
 	            br.close();
 	            //RECORREMOS EL VECTOR Y GUARDAMOS LA LINEAS EN EL FICHERO
-	            fw = new FileWriter("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv");
+	            fw = new FileWriter("Prestamos.csv");
 	            bw = new BufferedWriter(fw);
 	            for(int l=0;l<lineasAcopiar.size();l++){
 	                linea = (String)lineasAcopiar.get(l);
@@ -325,7 +325,7 @@ public class PrestamoDAO {
     
     public boolean load_prestamo_aleatorio(int random) {
 
-		File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv");
+		File f1 = new File("Prestamos.csv");
 		System.out.println(random);
 		if(f1.exists()) {
 			  Scanner fich = null;
@@ -336,7 +336,7 @@ public class PrestamoDAO {
 				  while(fich.hasNext()) {
 					  linea = fich.nextLine().split(",");
 					  int x = Integer.parseInt(linea[0]);
-					  if(x == random) {
+					  if(x == random && linea.length == 8) {
 						  this.setId_prestamo(Integer.parseInt(linea[0]));
 						  this.setId_libro(Integer.parseInt(linea[1]));
 						  this.setTitulo(linea[2]);
@@ -364,7 +364,7 @@ public class PrestamoDAO {
      */
     
     public boolean load_prestamo(String titulo, String usuario) {
-		File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv");
+		File f1 = new File("Prestamos.csv");
 		if(f1.exists()) {
 		  Scanner fich = null;
 		  try {
@@ -373,7 +373,7 @@ public class PrestamoDAO {
 
 			  while(fich.hasNext()) {
 				  linea = fich.nextLine().split(",");
-				  if(titulo.equals(linea[2]) && usuario.equals(linea[4])) {
+				  if(titulo.equals(linea[2]) && usuario.equals(linea[4]) && linea.length == 8) {
 					  this.setId_prestamo(Integer.parseInt(linea[0]));
 					  this.setId_libro(Integer.parseInt(linea[1]));
 					  this.setTitulo(linea[2]);
@@ -395,7 +395,7 @@ public class PrestamoDAO {
     }
     
     public boolean load_Prestamo(String usuario, int id) {
-		File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv");
+		File f1 = new File("Prestamos.csv");
 		int cont = id;
 		if(f1.exists()) {
 		  Scanner fich = null;
@@ -407,7 +407,7 @@ public class PrestamoDAO {
 				  linea = fich.nextLine().split(",");
 				  if(usuario.equals(linea[4])) {
 					  cont--;
-					  if(cont == 0) {
+					  if(cont == 0 && linea.length == 8) {
 						  this.setId_prestamo(Integer.parseInt(linea[0]));
 						  this.setId_libro(Integer.parseInt(linea[1]));
 						  this.setTitulo(linea[2]);

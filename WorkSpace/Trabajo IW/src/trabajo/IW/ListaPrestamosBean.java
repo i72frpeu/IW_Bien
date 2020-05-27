@@ -37,7 +37,10 @@ public class ListaPrestamosBean {
 		for(int i = 0; i < 8; i++) {
 			PrestamoDAO aux = new PrestamoDAO();
 			aux.load_prestamo_aleatorio(i+1);
-			listaPrestamos.add(aux);
+			if(aux.getTitulo() != null) {
+				listaPrestamos.add(aux);
+			}
+			
 		}
 	}
 	/**
@@ -76,6 +79,14 @@ public class ListaPrestamosBean {
 				if(aux.getTitulo() != null) {
 					listaPrestamos.add(aux);
 				}
+			}
+		}
+	}
+	
+	public void removePrestamo(int id) {
+		for(int i = 0; i < listaPrestamos.size(); i++) {
+			if(listaPrestamos.get(i).getId_prestamo() == id) {
+				listaPrestamos.remove(i);
 			}
 		}
 	}

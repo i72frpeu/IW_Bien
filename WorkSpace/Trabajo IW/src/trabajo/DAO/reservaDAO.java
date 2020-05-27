@@ -127,7 +127,7 @@ public class ReservaDAO{
 	   * @return True si puede cargar la reserva, False si no se puede
 	   */
 		public boolean load_reserva(int id) {
-			File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Reservas.csv");
+			File f1 = new File("Reservas.csv");
 			if(f1.exists()) {
 			  Scanner fich = null;
 			  try {
@@ -163,7 +163,7 @@ public class ReservaDAO{
 		 * @return True si puede cargar la reserva, False si no se puede
 		 */
 		public boolean load_reserva(String usuario, int id) {
-			File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Reservas.csv");
+			File f1 = new File("Reservas.csv");
 			int cont = id;
 			if(f1.exists()) {
 			  Scanner fich = null;
@@ -204,7 +204,7 @@ public class ReservaDAO{
 		 * @return True si puede cargar la reserva, False si no se puede
 		 */
 		public boolean load_reserva(String usuario, String Titulo) {
-			File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Reservas.csv");
+			File f1 = new File("Reservas.csv");
 			if(f1.exists()) {
 			  Scanner fich = null;
 			  try {
@@ -246,7 +246,7 @@ public class ReservaDAO{
 		 */
 		public boolean guardarReserva(int idReserva, String titulo, String usuario, String carnet_universidad, int fecha_inicio_Reserva) throws FileNotFoundException{
 		    try{
-		                Writer output = new BufferedWriter(new FileWriter("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Reservas.csv", true));
+		                Writer output = new BufferedWriter(new FileWriter("Reservas.csv", true));
 		                output.append(idReserva + "," + titulo + "," + usuario + "," + carnet_universidad + "," + fecha_inicio_Reserva + "," + (fecha_inicio_Reserva+30) + "\n");
 		                            
 		                output.close();
@@ -263,7 +263,7 @@ public class ReservaDAO{
 		 * @throws FileNotFoundException
 		 */
 		public boolean comprobarId(int id) throws FileNotFoundException{
-			File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv");
+			File f1 = new File("Prestamos.csv");
 			boolean comprueba = false;
 			if(f1.exists()) {
 	                Scanner fich;
@@ -297,7 +297,7 @@ public class ReservaDAO{
                 BufferedWriter bw = null;
                 ArrayList<String> lineasAcopiar = new ArrayList<>();
               try{
-                fr = new FileReader("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Reservas.csv");
+                fr = new FileReader("Reservas.csv");
                     br = new BufferedReader(fr);
                     while(br.ready()){
                         linea = br.readLine();
@@ -311,7 +311,7 @@ public class ReservaDAO{
                     }
                     br.close();
                     //RECORREMOS EL VECTOR Y GUARDAMOS LA LINEAS EN EL FICHERO
-                    fw = new FileWriter("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Reservas.csv");
+                    fw = new FileWriter("Reservas.csv");
                     bw = new BufferedWriter(fw);
                     for(int l=0;l<lineasAcopiar.size();l++){
                         linea = (String)lineasAcopiar.get(l);
@@ -330,7 +330,7 @@ public class ReservaDAO{
 		 * @return cont+1 (numero de reservas +1), -1 (si no se a podido realizar)
 		 */
 		public int numeroReservas() {
-			  File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Reservas.csv");
+			  File f1 = new File("Reservas.csv");
 			  if(f1.exists()) {
 				  Scanner fich = null;
 				  int cont = 0;
