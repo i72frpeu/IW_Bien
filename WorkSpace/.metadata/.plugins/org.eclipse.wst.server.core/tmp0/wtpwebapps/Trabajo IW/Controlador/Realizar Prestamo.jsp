@@ -33,9 +33,9 @@
 		prestamoactivo.setFecha_inicio_prestamo(Integer.parseInt(request.getParameter("fecha")));
 		prestamoactivo.setFecha_final_prestamo(Integer.parseInt(request.getParameter("fecha")));
 		if(Usuario.getTipo() == 3){
-			response.sendRedirect("../Vistas/Pedido (Admin).jsp");
+			response.sendRedirect("../Vistas/Prestamo (Admin).jsp");
 		}else{
-			response.sendRedirect("../Vistas/Pedido.jsp");
+			response.sendRedirect("../Vistas/Prestamo.jsp");
 		}
 	}
 

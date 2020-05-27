@@ -35,13 +35,13 @@ if(Usuario.getTipo() == 1){
   <div class="div_home">
   		<table class = "tablalibro">
 		<tr>
-			<td class = "tdlibro" rowspan = 4> Imagen </td> <td class = "tdlibro"> ID: <%= prestamoactivo.getId_prestamo() %> </td> <td class = "tdlibro" colspan = 2> Titulo: <%= prestamoactivo.getTitulo() %> </td>
+			<td class = "tdlibro" rowspan = 4> Imagen </td> <td class = "tdlibro"> <%= prestamoactivo.getId_prestamo() %> </td> <td class = "tdlibro" colspan = 2> <%= prestamoactivo.getTitulo() %> </td>
 		</tr>
 		<tr>
-			<td class = "tdlibro" colspan = 2> Usuario: <%= prestamoactivo.getUsuario() %> </td> <td class = "tdlibro"> Carnet: <%= prestamoactivo.getCarnet() %> </td>
+			<td class = "tdlibro" colspan = 2> <%= prestamoactivo.getUsuario() %> </td> <td class = "tdlibro"> <%= prestamoactivo.getCarnet() %> </td>
 		</tr>
 		<tr>
-			<td class = "tdlibro"> Fecha Inicio: <%= prestamoactivo.getFecha_inicio_prestamo() %> </td> <td class = "tdlibro"> Fecha Final: <%= prestamoactivo.getFecha_final_prestamo() %> </td> <td class = "tdlibro"> Retraso: Si o No </td>
+			<td class = "tdlibro"> <%= prestamoactivo.getFecha_inicio_prestamo() %> </td> <td class = "tdlibro"> <%= prestamoactivo.getFecha_final_prestamo() %> </td> <td class = "tdlibro"> Retraso: Si o No </td>
 		</tr>
 		<tr>
 			<td class = "tdlibro" colspan = 3> <a href = "../Controlador/Cancelar Prestamo.jsp"><button>Terminar Prestamo</button></a> </td>

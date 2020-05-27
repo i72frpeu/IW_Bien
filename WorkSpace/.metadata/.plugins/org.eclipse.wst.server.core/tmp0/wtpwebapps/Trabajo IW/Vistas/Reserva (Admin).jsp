@@ -35,13 +35,13 @@ if(Usuario.getTipo() == 1){
   <div class="div_home">
   		<table class = "tablalibro">
 		<tr>
-			<td class = "tdlibro" rowspan = 4> Imagen </td> <td class = "tdlibro"> ID: <%= reservaactiva.getIdReserva() %> </td> <td class = "tdlibro"> <%= reservaactiva.getTitulo() %> </td>
+			<td class = "tdlibro" rowspan = 4> Imagen </td> <td class = "tdlibro"> ID: <%= reservaactiva.getIdReserva() %> </td> <td class = "tdlibro"> Titulo: <%= reservaactiva.getTitulo() %> </td>
 		</tr>
 		<tr>
-			<td class = "tdlibro" > <%= reservaactiva.getUsuario() %> </td> <td class = "tdlibro"> <%= reservaactiva.getCarnet_universidad() %></td>
+			<td class = "tdlibro" > Usuario: <%= reservaactiva.getUsuario() %> </td> <td class = "tdlibro"> Carnet: <%= reservaactiva.getCarnet_universidad() %></td>
 		</tr>
 		<tr>
-			<td class = "tdlibro"> <%= reservaactiva.getFecha_inicio_Reserva() %> </td> <td class = "tdlibro"> <%= reservaactiva.getFecha_final_Reserva() %> </td>
+			<td class = "tdlibro"> Fecha Inicio: <%= reservaactiva.getFecha_inicio_Reserva() %> </td> <td class = "tdlibro"> Fecha Final: <%= reservaactiva.getFecha_final_Reserva() %> </td>
 		</tr>
 		<tr>
 			<td class = "tdlibro"> <a href = "Formulario Prestamo Reserva.jsp"><button>Prestar Libro</button></a></td>
