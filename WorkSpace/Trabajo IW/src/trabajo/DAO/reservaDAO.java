@@ -73,7 +73,7 @@ public class ReservaDAO{
 				  while(fich.hasNext()) {
 					  linea = fich.nextLine().split(",");
 					  int x = Integer.parseInt(linea[0]);
-					  if(id == x) {
+					  if(id == x && linea.length == 6) {
 						  this.setIdReserva(Integer.parseInt(linea[0]));
 						  this.setTitulo(linea[1]);
 						  this.setUsuario(linea[2]);
@@ -106,7 +106,7 @@ public class ReservaDAO{
 						  String user = linea[2];
 						  if(user.equals(usuario)) {
 							  cont--;
-							  if(cont == 0) {
+							  if(cont == 0 && linea.length == 6) {
 							  this.setIdReserva(Integer.parseInt(linea[0]));
 							  this.setTitulo(linea[1]);
 							  this.setUsuario(linea[2]);
@@ -139,7 +139,7 @@ public class ReservaDAO{
 					  linea = fich.nextLine().split(",");
 					  String user = linea[2];
 					  String titulo = linea[1];
-					  if(user.equals(usuario) && titulo.equals(Titulo)) {
+					  if(user.equals(usuario) && titulo.equals(Titulo) && linea.length == 6) {
 						  this.setIdReserva(Integer.parseInt(linea[0]));
 						  this.setTitulo(linea[1]);
 						  this.setUsuario(linea[2]);
@@ -170,7 +170,7 @@ public class ReservaDAO{
 		    return false;
 		  }
 		
-		public static boolean comprobarId(int id) throws FileNotFoundException{
+		public boolean comprobarId(int id) throws FileNotFoundException{
 			File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv");
 			boolean comprueba = false;
 			if(f1.exists()) {
@@ -189,7 +189,7 @@ public class ReservaDAO{
 		}
 
 
-		public static void cancelarReserva(int id) throws FileNotFoundException{
+		public void cancelarReserva(int id) throws FileNotFoundException{
             if(!comprobarId(id)) {
               System.out.println("La Reserva con id " + id + " no se encuentra");
             }else {
@@ -200,7 +200,7 @@ public class ReservaDAO{
                 BufferedWriter bw = null;
                 ArrayList<String> lineasAcopiar = new ArrayList<>();
               try{
-                fr = new FileReader("C:/User/reservas.csv");
+                fr = new FileReader("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Reservas.csv");
                     br = new BufferedReader(fr);
                     while(br.ready()){
                         linea = br.readLine();
@@ -214,7 +214,7 @@ public class ReservaDAO{
                     }
                     br.close();
                     //RECORREMOS EL VECTOR Y GUARDAMOS LA LINEAS EN EL FICHERO
-                    fw = new FileWriter("C:/User/reservas.csv");
+                    fw = new FileWriter("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Reservas.csv");
                     bw = new BufferedWriter(fw);
                     for(int l=0;l<lineasAcopiar.size();l++){
                         linea = (String)lineasAcopiar.get(l);

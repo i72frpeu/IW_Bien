@@ -44,7 +44,7 @@ if(Usuario.getTipo() == 1){
 			<td class = "tdlibro"> <%= prestamoactivo.getFecha_inicio_prestamo() %> </td> <td class = "tdlibro"> <%= prestamoactivo.getFecha_final_prestamo() %> </td> <td class = "tdlibro"> Retraso: Si o No </td>
 		</tr>
 		<tr>
-			<td class = "tdlibro" colspan = 3> <a href = "Cancelar Prestamo.jsp"><button>Terminar Prestamo</button></a> </td>
+			<td class = "tdlibro" colspan = 3> <a href = "../Controlador/Cancelar Prestamo.jsp"><button>Terminar Prestamo</button></a> </td>
 		</tr>
 	</table>
   </div>

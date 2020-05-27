@@ -1,0 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<jsp:useBean id="Usuario" class="trabajo.IW.UsuarioBean" scope="session" />
+<jsp:useBean id="reservaactiva" class="trabajo.IW.ReservaBean" scope="session" />
+<jsp:useBean id="listaReservas" class="trabajo.IW.ListaReservasBean" scope="session" />

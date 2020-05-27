@@ -44,7 +44,7 @@ if(Usuario.getTipo() == 1){
 			<td class = "tdlibro"> <%= reservaactiva.getFecha_inicio_Reserva() %> </td> <td class = "tdlibro"> <%= reservaactiva.getFecha_final_Reserva() %> </td>
 		</tr>
 		<tr>
-			<td class = "tdlibro"> <a href = "Reservas.jsp"><button>Eliminar Reserva</button></a> </td>
+			<td class = "tdlibro"> <a href = "../Controlador/Eliminar Reserva.jsp"><button>Eliminar Reserva</button></a> </td>
 		</tr>
 	</table>
   </div>

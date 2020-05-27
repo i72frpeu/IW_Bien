@@ -47,6 +47,14 @@ public class ListaReservasBean {
 			}
 		}
 	}
+	
+	public void removeReserva(int id) {
+		for(int i = 0; i < listaReservas.size(); i++) {
+			if(listaReservas.get(i).getIdReserva() == id) {
+				listaReservas.remove(i);
+			}
+		}
+	}
 
 	public void addReserva(ReservaDAO aux) {
 		listaReservas.add(aux);

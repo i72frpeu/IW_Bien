@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <jsp:useBean id="Usuario" class="trabajo.IW.UsuarioBean" scope="session" />
-<%@page import="trabajo.DAO.PrestamoDAO" %>
 <jsp:useBean id="listaprestamos" class="trabajo.IW.ListaPrestamosBean" scope="session" />
 <%
 if(Usuario.getTipo() == 1){
