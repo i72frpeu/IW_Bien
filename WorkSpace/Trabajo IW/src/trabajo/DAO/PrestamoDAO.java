@@ -393,4 +393,39 @@ public class PrestamoDAO {
 	  }
 		return false;
     }
+    
+    public boolean load_Prestamo(String usuario, int id) {
+		File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv");
+		int cont = id;
+		if(f1.exists()) {
+		  Scanner fich = null;
+		  try {
+			  fich = new Scanner(f1);
+			  String[] linea = null;
+
+			  while(fich.hasNext()) {
+				  linea = fich.nextLine().split(",");
+				  if(usuario.equals(linea[4])) {
+					  cont--;
+					  if(cont == 0) {
+						  this.setId_prestamo(Integer.parseInt(linea[0]));
+						  this.setId_libro(Integer.parseInt(linea[1]));
+						  this.setTitulo(linea[2]);
+						  this.setAutor(linea[3]);
+						  this.setUsuario(linea[4]);
+						  this.setCarnet(linea[5]);
+						  this.setFecha_inicio_prestamo(Integer.parseInt(linea[6]));
+						  this.setFecha_final_prestamo(Integer.parseInt(linea[7]));
+						  return true;
+					  }
+				  }
+				  }
+		  }catch(IOException e) {
+				System.out.println(e);
+		  }finally{
+				fich.close();
+		}
+	  }
+	  return false;
+	}
 }
