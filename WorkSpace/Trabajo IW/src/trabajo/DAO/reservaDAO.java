@@ -208,7 +208,7 @@ public class ReservaDAO{
                         if(id!=Integer.parseInt(lineaComas[0])){
                           lineasAcopiar.add(linea);
                                           }else if(id==Integer.parseInt(lineaComas[0])){
-                                              lineaComas[0] = lineaComas[0] + ",1";
+                                              lineasAcopiar.add(linea + ",1");
 
                                           }
                     }
