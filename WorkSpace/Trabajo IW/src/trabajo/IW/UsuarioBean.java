@@ -6,6 +6,9 @@ import java.io.Writer;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 
+/**
+ * Clase Usuario que contiene la informacion de los usuarios del sistema
+ */
 public class UsuarioBean {
 
   private int id;
@@ -17,6 +20,9 @@ public class UsuarioBean {
   private String email;
   private String carnet_universidad;
 
+  /**
+   * Constructor de la clase Usuario sin parametrizar
+   */
 	public UsuarioBean(){
 		this.id = -1;
 		this.tipo = -1;
@@ -27,7 +33,18 @@ public class UsuarioBean {
 		this.email = null;
 		this.carnet_universidad = null;
 	}
-
+	/**
+	 * Contructor de la clase Usuario con parametros
+	 * @param id
+	 * @param tipo
+	 * @param nombre
+	 * @param apellido1
+	 * @param apellido2
+	 * @param usuario
+	 * @param password
+	 * @param email
+	 * @param carnet_universidad
+	 */
   public UsuarioBean(int id, int tipo, String nombre, String apellido1, String apellido2, String usuario, String password, String email, String carnet_universidad){
 		this.id = id;
     this.tipo = tipo;
@@ -38,73 +55,124 @@ public class UsuarioBean {
     this.email = email;
     this.carnet_universidad = carnet_universidad;
 	}
-
+  /**
+   * Observador de ID
+   * @return Identificador del Usuario
+   */
   public int getID(){
 		return id;
 	}
-
+  /**
+   * Obeservador de Tipo
+   * @return Tipo de Usuario
+   */
   public int getTipo(){
 		return tipo;
 	}
-
+  /**
+   * Observador de Nombre
+   * @return Nombre del Usuario
+   */
 	public String getNombre(){
 		return nombre;
 	}
-
+	/**
+	 * Observador de Apellido1
+	 * @return Apellido de usuario
+	 */
   public String getApellido1(){
     return apellido1;
   }
-
-
+  /**
+   * Observador de Usuario
+   * @return Usuario de Usuario
+   */
   public String getUsuario(){
 		return usuario;
 	}
-
+  /**
+   * Observador de Password
+   * @return Contraseña de Usuario
+   */
   public String getPassword(){
 		return password;
 	}
-
+  /**
+   * Observador de Email
+   * @return Email de Usuario
+   */
   public String getEmail(){
 		return email;
 	}
-
+  /**
+   * Observador de Carnet
+   * @return Carnet de Usuario
+   */
   public String getCarnet(){
 		return carnet_universidad;
 	}
-
+  /**
+   * Modificador de ID
+   * @param id
+   */
   public void setID(int id){
     this.id = id;
   }
-
+  /**
+   * Modificador de Tipo
+   * @param tipo
+   */
   public void setTipo(int tipo){
     this.tipo = tipo;
   }
-
+  /**
+   * Modificador de Nombre
+   * @param nombre
+   */
   public void setNombre(String nombre){
     this.nombre = nombre;
   }
-
+  /**
+   * Modificador de Apellido1
+   * @param apellido1
+   */
   public void setApellido1(String apellido1){
     this.apellido1 = apellido1;
   }
-
-
+  /**
+   * Modificador de Usuario
+   * @param usuario
+   */
   public void setUsuario(String usuario){
     this.usuario = usuario;
   }
-
+  /**
+   * Modificador de Password
+   * @param password
+   */
   public void setPassword(String password){
     this.password = password;
   }
-
+  /**
+   * Modificador de Email
+   * @param email
+   */
   public void setEmail(String email){
     this.email = email;
   }
-
+  /**
+   * Modificador de Carnet
+   * @param carnet_universidad
+   */
   public void setCarnet(String carnet_universidad){
     this.carnet_universidad = carnet_universidad;
   }
-
+  /**
+   * Iniciador de Sesion del Usuario
+   * @param email
+   * @param password
+   * @return True si se inicia sesion, false si no se inicia
+   */
   public boolean iniciarSesion(String email, String password){
 	  File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Usuarios.csv");
 	  if(f1.exists()) {
@@ -138,7 +206,19 @@ public class UsuarioBean {
 	  return false;
   }
 
-
+  /**
+   * Resgistra a Usuario en el sistema
+   * @param id
+   * @param tipo
+   * @param nombre
+   * @param apellido1
+   * @param usuario
+   * @param password
+   * @param email
+   * @param carnet_universidad
+   * @return True si se ha podido registrar, false si no se ha podido
+   * @throws IOException
+   */
   public boolean registrarse(int id, int tipo, String nombre, String apellido1, String usuario, String password, String email, String carnet_universidad) throws IOException{
 	  Writer output = new BufferedWriter(new FileWriter("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Usuarios.csv",true));
     String data = id + "," + tipo + "," + nombre + "," + apellido1 + "," + usuario + "," + password + "," + email + "," + carnet_universidad;
@@ -154,7 +234,10 @@ public class UsuarioBean {
     return false;
   }
 
-  
+  /**
+   * Calcula el numero de usuarios en el sistema
+   * @return numero de usuarios en el sistema
+   */
   public int numeroUsers() {
 	  File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Usuarios.csv");
 	  if(f1.exists()) {
@@ -178,5 +261,4 @@ public class UsuarioBean {
 }
 
 }
-
 
