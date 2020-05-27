@@ -11,6 +11,11 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * 
+ * Clase que permite modificar y establecer las reservas en la base de datos
+ *
+ */
 public class ReservaDAO{
 
 	  private int idReserva;
@@ -20,48 +25,107 @@ public class ReservaDAO{
 	  private int fecha_inicio_Reserva;
 	  private int fecha_final_Reserva;
 
+	  /**
+	   * Observador de IdReserva
+	   * @return Id de la reserva
+	   */
 	  public int getIdReserva(){
 			return idReserva;
 		}
+	  
+	  /**
+	   * Modificador de IdReserva
+	   * @param idReserva
+	   */
 	  public void setIdReserva(int idReserva){
 	    this.idReserva = idReserva;
 	  }
 
+	  /**
+	   * Observador de Titulo
+	   * @return titulo de la reserva
+	   */
 	  public String getTitulo(){
 			return titulo;
 		}
+	  
+	  /**
+	   * Modificador de Titulo
+	   * @param titulo
+	   */
 	  public void setTitulo(String titulo){
 	    this.titulo = titulo;
 	  }
 
+	  /**
+	   * Observador de Usuario
+	   * @return usuario de la reserva
+	   */
 		public String getUsuario(){
 			return usuario;
 		}
+		
+		/**
+		 * Modificador de Usuario
+		 * @param usuario
+		 */
 	  public void setUsuario(String usuario){
 	    this.usuario = usuario;
 	  }
 
+	  /**
+	   * Observador de Carnet_universidad
+	   * @return carnet_universidad de la reserva
+	   */
 	  public String getCarnet_universidad(){
 	    return carnet_universidad;
 	  }
+	  
+	  /**
+	   * Modificador de Carnet_universidad
+	   * @param carnet_universidad
+	   */
 	  public void setCarnet_universidad(String carnet_universidad){
 	    this.carnet_universidad = carnet_universidad;
 	  }
 
+	  /**
+	   * Observador de fecha_inicio_Reserva
+	   * @return fecha de inicio de la reserva
+	   */
 	  public int getFecha_inicio_Reserva(){
 			return fecha_inicio_Reserva;
 		}
+	  
+	  /**
+	   * Modificador de fecha_inicio_Reserva
+	   * @param fecha_inicio_Reserva
+	   */
 	  public void setfecha_inicio_Reserva(int fecha_inicio_Reserva){
 	    this.fecha_inicio_Reserva = fecha_inicio_Reserva;
 	  }
 
+	  /**
+	   * Observador de fecha_final_Reserva
+	   * @return fecha final de la reserva
+	   */
 	  public int getFecha_final_Reserva(){
 	    return fecha_final_Reserva;
 	  }
+	  
+	  /**
+	   * Modificador de fecha_final_Reserva
+	   * @param fecha_final_Reserva
+	   */
 	  public void setfecha_final_Reserva(int fecha_fin_Reserva){
 	    this.fecha_final_Reserva = fecha_fin_Reserva;
 	  }
 
+	  /**
+	   * Carga en la web una reserva para su visualizacion
+	   * @param id
+	   * @return True si puede cargar la reserva, False si no se puede
+	   */
 		public boolean load_reserva(int id) {
 			File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Reservas.csv");
 			if(f1.exists()) {
@@ -92,6 +156,12 @@ public class ReservaDAO{
 		  return false;
 		}
 		
+		/**
+		 * Carga en la web una reserva para su visualizacion
+		 * @param usuario
+		 * @param id
+		 * @return True si puede cargar la reserva, False si no se puede
+		 */
 		public boolean load_reserva(String usuario, int id) {
 			File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Reservas.csv");
 			int cont = id;
@@ -126,7 +196,13 @@ public class ReservaDAO{
 		  return false;
 		}
 		
-		
+
+		/**
+		 * Carga en la web una reserva para su visualizacion
+		 * @param usuario
+		 * @param Titulo
+		 * @return True si puede cargar la reserva, False si no se puede
+		 */
 		public boolean load_reserva(String usuario, String Titulo) {
 			File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Reservas.csv");
 			if(f1.exists()) {
@@ -158,6 +234,16 @@ public class ReservaDAO{
 		  return false;
 		}
 		
+		/**
+		 * Guarda una reserva en la base de datos
+		 * @param idReserva
+		 * @param titulo
+		 * @param usuario
+		 * @param carnet_universidad
+		 * @param fecha_inicio_Reserva
+		 * @return True si se ha podido guardar el libro, False si no se puede
+		 * @throws FileNotFoundException
+		 */
 		public boolean guardarReserva(int idReserva, String titulo, String usuario, String carnet_universidad, int fecha_inicio_Reserva) throws FileNotFoundException{
 		    try{
 		                Writer output = new BufferedWriter(new FileWriter("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Reservas.csv", true));
@@ -170,6 +256,12 @@ public class ReservaDAO{
 		    return false;
 		  }
 		
+		/**
+		 * Compara la Id de la reserva
+		 * @param id
+		 * @return True si la Id comparada es correcta, False si no se puede
+		 * @throws FileNotFoundException
+		 */
 		public boolean comprobarId(int id) throws FileNotFoundException{
 			File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Prestamos.csv");
 			boolean comprueba = false;
@@ -189,6 +281,11 @@ public class ReservaDAO{
 		}
 
 
+		/**
+		 * Cancela una reserva que se haya realizado con anterioridad
+		 * @param id
+		 * @throws FileNotFoundException
+		 */
 		public void cancelarReserva(int id) throws FileNotFoundException{
             if(!comprobarId(id)) {
               System.out.println("La Reserva con id " + id + " no se encuentra");
@@ -228,6 +325,10 @@ public class ReservaDAO{
             }
           }
 		
+		/**
+		 * Devuelve el numero de reservas existente para generar el id de la reserva
+		 * @return cont+1 (numero de reservas +1), -1 (si no se a podido realizar)
+		 */
 		public int numeroReservas() {
 			  File f1 = new File("D:\\unaif\\Documents\\Universidad\\3.2\\IW\\Trabajo\\Trabajo\\IW_Bien\\WorkSpace\\Trabajo IW\\WebContent\\Ficheros\\Reservas.csv");
 			  if(f1.exists()) {
