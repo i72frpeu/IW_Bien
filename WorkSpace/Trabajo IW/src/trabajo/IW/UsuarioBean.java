@@ -202,6 +202,8 @@ public class UsuarioBean {
 		  }finally{
 				fich.close();
 		}
+	  }else {
+		  
 	  }
 	  return false;
   }

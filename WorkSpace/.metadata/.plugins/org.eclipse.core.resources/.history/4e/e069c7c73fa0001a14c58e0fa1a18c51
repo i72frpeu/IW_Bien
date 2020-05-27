@@ -8,7 +8,7 @@
 
 	int id = 0;
 	
-	
+System.out.println("Jilipollas");	
 
 	if(Usuario.iniciarSesion(request.getParameter("email"), request.getParameter("contr")) == true){
 	
